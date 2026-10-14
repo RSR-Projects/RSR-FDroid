@@ -4,7 +4,7 @@ Welcome to the official F-Droid repository for RSR-Projects Android applications
 
 ## Applications
 
-- CastDrive
+* CastDrive
 
 ## Repository status
 
