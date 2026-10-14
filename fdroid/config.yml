@@ -1,5 +1,10 @@
 repo_name: "RSR-Projects F-Droid Repository"
 repo_url: "https://rsr-projects.github.io/RSR-FDroid/fdroid/repo"
-repo_description: "Official F-Droid repository for RSR-Projects Android applications."
+repo_description: "Official repository for RSR-Projects Android applications."
 archive_older: 0
 repo_maxage: 0
+
+repo_keyalias: rsrrepo
+keystore: keystore.jks
+keystorepass: {env: REPO_KEYSTORE_PASSWORD}
+keypass: {env: REPO_KEY_PASSWORD}
