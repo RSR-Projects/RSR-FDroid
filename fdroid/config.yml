@@ -1,0 +1,5 @@
+repo_name: "RSR-Projects F-Droid Repository"
+repo_url: "https://rsr-projects.github.io/RSR-FDroid/fdroid/repo"
+repo_description: "Official F-Droid repository for RSR-Projects Android applications."
+archive_older: 0
+repo_maxage: 0
