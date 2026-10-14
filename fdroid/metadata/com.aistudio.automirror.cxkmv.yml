@@ -1,0 +1,18 @@
+Categories:
+
+* Connectivity
+  License: MIT License
+  AuthorName: RSR-Projects
+  Name: CastDrive
+  Summary: Mirror your Android screen to compatible receivers
+  Description: |
+  CastDrive provides screen mirroring to compatible receivers.
+  It includes performance modes and supports touch and audio
+  features where compatible. Some features may be experimental.
+  WebSite: https://github.com/RSR-Projects/CastDrive
+  SourceCode: https://github.com/RSR-Projects/CastDrive
+  IssueTracker: https://github.com/RSR-Projects/CastDrive/issues
+  AutoUpdateMode: None
+  UpdateCheckMode: None
+  CurrentVersion: 1.0.0
+  CurrentVersionCode: 1
