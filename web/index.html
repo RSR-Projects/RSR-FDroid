@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSR-Projects — Open Source Android & Multi-Screen Ecosystem</title>
+  
+  <meta name="description" content="Official repository and custom landing page for RSR-Projects Android applications, featuring CastDrive and automated F-Droid repository distribution.">
+  <meta name="keywords" content="RSR-Projects, CastDrive, F-Droid, Android, Screen Mirroring, Reverse Touch, Open Source, Head Unit, Android Auto">
+  <meta name="author" content="RSR-Projects">
+  
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rsr-projects.github.io/RSR-FDroid/">
+  <meta property="og:title" content="RSR-Projects — Open Source. Built to Connect.">
+  <meta property="og:description" content="Discover CastDrive and connect to the official RSR-Projects F-Droid repository for verified Android software distribution.">
+  <meta property="og:image" content="./assets/screenshots/1.png">
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RSR-Projects — Open Source. Built to Connect.">
+  <meta name="twitter:description" content="CastDrive screen mirroring and third-party F-Droid repository distribution.">
+  <meta name="twitter:image" content="./assets/screenshots/1.png">
+  
+  <link rel="icon" type="image/png" href="./assets/castdrive-icon.png">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <!-- Accessible Skip to Content Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Live Region for Screen Reader Announcements -->
+  <div id="a11y-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="./" class="brand-logo" aria-label="RSR-Projects Homepage">
+        <div class="brand-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <span class="brand-name">RSR-Projects</span>
+        <span class="brand-tag">F-Droid</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav id="primary-nav" class="nav-menu" role="navigation" aria-label="Primary Navigation">
+        <a href="#hero" class="nav-link">Overview</a>
+        <a href="#castdrive" class="nav-link">CastDrive</a>
+        <a href="#screenshots" class="nav-link">Screenshots</a>
+        <a href="#fdroid-repo" class="nav-link">F-Droid Repository</a>
+        <a href="#ecosystem" class="nav-link">Ecosystem</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://github.com/RSR-Projects" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm" aria-label="RSR-Projects on GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+        <a href="#fdroid-repo" class="btn btn-primary btn-sm">
+          <span>Get Repository</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-badge-wrap">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            <span>RSR-Projects &bull; Autonomous Open-Source Android Tooling</span>
+          </div>
+        </div>
+
+        <h1 class="hero-title">
+          Open Source.<br>
+          <span class="hero-title-gradient">Built to Connect.</span>
+        </h1>
+
+        <p class="hero-lead">
+          Building practical, privacy-first software to connect Android devices, car head units, and desktop computers. Distributing verified builds through an automated, self-hosted F-Droid repository.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#castdrive" class="btn btn-primary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            <span>Explore CastDrive</span>
+          </a>
+          <a href="#fdroid-repo" class="btn btn-secondary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Add F-Droid Repository</span>
+          </a>
+        </div>
+
+        <div class="ecosystem-pills" aria-label="Project attributes">
+          <div class="eco-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>100% Free & Open Source</span>
+          </div>
+          <div class="eco-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>No Trackers or Analytics</span>
+          </div>
+          <div class="eco-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Automated F-Droid Signing</span>
+          </div>
+          <div class="eco-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>MIT Licensed</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Project: CastDrive -->
+    <section id="castdrive">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-pretitle">Featured Project</span>
+          <h2 class="section-title">CastDrive</h2>
+          <p class="section-desc">
+            Real-time Android screen mirroring designed to turn your phone into a low-latency transmitter and secondary Android hardware, automotive stereos, or desktop browsers into responsive receivers.
+          </p>
+        </div>
+
+        <div class="castdrive-showcase">
+          <div class="showcase-header">
+            <div class="showcase-title-area">
+              <img src="./assets/castdrive-icon.png" alt="CastDrive official application icon" class="app-icon" width="68" height="68">
+              <div class="app-headings">
+                <h3>CastDrive</h3>
+                <div class="app-meta-badges">
+                  <span class="badge badge-stable">v1.0.0 Stable</span>
+                  <span class="badge badge-license">MIT License</span>
+                  <span class="badge badge-license">Category: Connectivity</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-links">
+              <a href="https://github.com/RSR-Projects/CastDrive" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                <span>Source Code</span>
+              </a>
+              <a href="https://github.com/RSR-Projects/CastDrive/releases" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>Releases</span>
+              </a>
+              <a href="https://github.com/RSR-Projects/CastDrive/issues" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <span>Issues</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Architecture Concept Banner -->
+          <div class="concept-banner">
+            <div class="concept-text">
+              <h4>Transmitter &harr; Receiver Architecture</h4>
+              <p>Your primary Android phone acts as the high-speed transmitter. Compatible secondary displays receive screen, audio, and send reverse touch inputs.</p>
+            </div>
+            <div class="arch-flow">
+              <div class="arch-node">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                <span>Phone (Tx)</span>
+              </div>
+              <div class="arch-arrow">
+                <span>Screen & Audio &rarr;</span>
+                <span>&larr; Reverse Touch</span>
+              </div>
+              <div class="arch-node">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                <span>Car / PC / Tablet (Rx)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature Cards Grid -->
+          <div class="feature-grid">
+            <!-- Feature 1: Native Receiver -->
+            <div class="feature-card">
+              <div class="feature-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <h4>Native Android Receiver</h4>
+              <p>Run CastDrive on a second Android device, car stereo, or tablet to receive real-time, low-latency video transmission in full-screen with dedicated connection status controls.</p>
+              <div class="feature-tags">
+                <span class="feature-tag">Low-Latency</span>
+                <span class="feature-tag">Fullscreen</span>
+                <span class="feature-tag">Native UI</span>
+              </div>
+            </div>
+
+            <!-- Feature 2: Reverse Touch Control -->
+            <div class="feature-card">
+              <div class="feature-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"></path>
+                  <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"></path>
+                  <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"></path>
+                  <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path>
+                </svg>
+              </div>
+              <h4>Reverse Touchscreen Control</h4>
+              <p>Enables two-way interaction. The receiving touchscreen can send taps, drags, swipes, and system navigation commands (Back, Home, Recents) back to the transmitter using Android's Accessibility framework without requiring root.</p>
+              <div class="feature-tags">
+                <span class="feature-tag">No Root Required</span>
+                <span class="feature-tag">Accessibility API</span>
+                <span class="feature-tag">Two-Way Input</span>
+              </div>
+            </div>
+
+            <!-- Feature 3: Internal Audio Mirroring -->
+            <div class="feature-card">
+              <div class="feature-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                </svg>
+              </div>
+              <h4>Internal Audio Mirroring</h4>
+              <p>Supports capturing and transmitting internal Android system audio along with the video stream in supported native receiver configurations and tested browser setups.</p>
+              <div class="feature-tags">
+                <span class="feature-tag">Audio Stream</span>
+                <span class="feature-tag">Native & Browser</span>
+                <span class="feature-tag">Synchronized</span>
+              </div>
+            </div>
+
+            <!-- Feature 4: Display & Rotation Controls -->
+            <div class="feature-card">
+              <div class="feature-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 4 23 10 17 10"></polyline>
+                  <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                </svg>
+              </div>
+              <h4>Display & Rotation Controls</h4>
+              <p>Fine-grained controls tailored for automotive head units: toggle between Fit, Fill, and Fullscreen modes, plus instant screen rotation to 0&deg;, 90&deg;, 180&deg;, or 270&deg; orientation.</p>
+              <div class="feature-tags">
+                <span class="feature-tag">Fit / Fill</span>
+                <span class="feature-tag">0&deg; to 270&deg;</span>
+                <span class="feature-tag">Head Unit Ready</span>
+              </div>
+            </div>
+
+            <!-- Feature 5: Flexible Connectivity -->
+            <div class="feature-card">
+              <div class="feature-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                  <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                </svg>
+              </div>
+              <h4>Multiple Connection Modes</h4>
+              <p>Connect over local Wi-Fi with automatic UDP discovery, use the phone's Wi-Fi hotspot when away from home, or utilize USB tethering for direct wired low-latency links.</p>
+              <div class="feature-tags">
+                <span class="feature-tag">UDP Discovery</span>
+                <span class="feature-tag">Wi-Fi Hotspot</span>
+                <span class="feature-tag">USB Tethering (Exp.)</span>
+              </div>
+            </div>
+
+            <!-- Feature 6: Zero-Install Browser Receiver -->
+            <div class="feature-card">
+              <div class="feature-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </div>
+              <h4>Zero-Install Browser Receiver</h4>
+              <p>Turn any PC, laptop, or browser-equipped device on your network into a receiver simply by opening <code>http://&lt;phone-ip&gt;:8080</code>. No dedicated PC installation required.</p>
+              <div class="feature-tags">
+                <span class="feature-tag">Web-Based</span>
+                <span class="feature-tag">PC Display</span>
+                <span class="feature-tag">Zero Installation</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Development Story Card -->
+          <div class="dev-story-card">
+            <div class="dev-story-header">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              <h4>Phone-First Development Workflow</h4>
+            </div>
+            <p>
+              CastDrive was developed and tested entirely from an Android device using Google AI Studio without requiring a desktop IDE during the primary development cycle. Over roughly 20 iterative development loops, it was tested on real automotive and mobile hardware, refining low-latency screen streaming, touch feedback, audio piping, and network discovery.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots Gallery -->
+    <section id="screenshots" class="screenshots-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-pretitle">Interface & Capabilities</span>
+          <h2 class="section-title">Verified App Screenshots</h2>
+          <p class="section-desc">
+            Direct captures from active CastDrive builds running on Android hardware.
+          </p>
+        </div>
+
+        <div class="gallery-container">
+          <div class="gallery-main-view">
+            <div class="gallery-preview-frame">
+              <img id="gallery-preview-img" src="./assets/screenshots/1.png" alt="CastDrive Screenshot 1: Transmitter Control Hub" width="320" height="693">
+            </div>
+
+            <div class="gallery-info-pane">
+              <span id="gallery-counter" class="gallery-counter">Screenshot 1 of 8</span>
+              <h3 id="gallery-title" class="gallery-title">Transmitter Control Hub</h3>
+              <p id="gallery-desc" class="gallery-desc">
+                Main interface on the Android phone. Shows real-time connection status, transmitter toggle, receiver IP input, port, and audio configuration.
+              </p>
+
+              <div class="gallery-nav-buttons">
+                <button id="gallery-prev-btn" class="btn btn-secondary btn-sm" aria-label="Previous screenshot">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
+                  <span>Previous</span>
+                </button>
+                <button id="gallery-next-btn" class="btn btn-secondary btn-sm" aria-label="Next screenshot">
+                  <span>Next</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Thumbnails Strip -->
+          <div class="thumb-strip" role="tablist" aria-label="CastDrive Screenshots">
+            <button class="thumb-btn active" role="tab" aria-selected="true" aria-label="View screenshot 1: Transmitter Control Hub">
+              <img src="./assets/screenshots/1.png" alt="" loading="lazy">
+            </button>
+            <button class="thumb-btn" role="tab" aria-selected="false" aria-label="View screenshot 2: Active Mirroring Session">
+              <img src="./assets/screenshots/2.png" alt="" loading="lazy">
+            </button>
+            <button class="thumb-btn" role="tab" aria-selected="false" aria-label="View screenshot 3: Resolution & Bitrate Settings">
+              <img src="./assets/screenshots/3.png" alt="" loading="lazy">
+            </button>
+            <button class="thumb-btn" role="tab" aria-selected="false" aria-label="View screenshot 4: Audio Streaming Mode">
+              <img src="./assets/screenshots/4.png" alt="" loading="lazy">
+            </button>
+            <button class="thumb-btn" role="tab" aria-selected="false" aria-label="View screenshot 5: Receiver Mode Interface">
+              <img src="./assets/screenshots/5.png" alt="" loading="lazy">
+            </button>
+            <button class="thumb-btn" role="tab" aria-selected="false" aria-label="View screenshot 6: Display Aspect Ratio Controls">
+              <img src="./assets/screenshots/6.png" alt="" loading="lazy">
+            </button>
+            <button class="thumb-btn" role="tab" aria-selected="false" aria-label="View screenshot 7: Multi-Angle Screen Rotation">
+              <img src="./assets/screenshots/7.png" alt="" loading="lazy">
+            </button>
+            <button class="thumb-btn" role="tab" aria-selected="false" aria-label="View screenshot 8: Automotive & Browser Connectivity">
+              <img src="./assets/screenshots/8.png" alt="" loading="lazy">
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Install through F-Droid Section -->
+    <section id="fdroid-repo" class="fdroid-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-pretitle">Distribution & Updates</span>
+          <h2 class="section-title">Install Through F-Droid</h2>
+          <p class="section-desc">
+            RSR-Projects operates an independent F-Droid repository. Adding this repository to your client provides automated updates, cryptographic index verification, and seamless installation.
+          </p>
+        </div>
+
+        <div class="fdroid-grid">
+          <!-- Setup Instructions Card -->
+          <div class="fdroid-card">
+            <!-- Third Party Disclaimer Notice -->
+            <div class="fdroid-disclaimer" role="note">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              <p>
+                <strong>Third-Party Repository:</strong> This is a dedicated, self-hosted repository operated directly by RSR-Projects. It is independent of the default upstream F-Droid catalogue.
+              </p>
+            </div>
+
+            <!-- Repository URL Copy Box -->
+            <div class="repo-copy-box">
+              <span class="repo-copy-label">Official Repository URL</span>
+              <div class="repo-copy-row">
+                <code id="repo-url-text" class="repo-url-display">https://rsr-projects.github.io/RSR-FDroid/fdroid/repo</code>
+                <button class="btn btn-primary btn-sm" data-copy-target="#repo-url-text" aria-label="Copy F-Droid Repository URL to clipboard">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span>Copy URL</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Client Selector Tabs -->
+            <div style="display: flex; gap: 8px; margin-bottom: 20px;" role="tablist" aria-label="Client Installation Guide">
+              <button class="btn btn-primary btn-sm" data-client-tab="fdroid" role="tab" aria-selected="true">F-Droid Client</button>
+              <button class="btn btn-secondary btn-sm" data-client-tab="neostore" role="tab" aria-selected="false">Neo Store / Droid-ify</button>
+            </div>
+
+            <!-- Steps for F-Droid -->
+            <div data-client-panel="fdroid">
+              <ol class="install-steps">
+                <li class="install-step-item">
+                  <span class="step-num">1</span>
+                  <div class="step-content">
+                    <h5>Open F-Droid Settings</h5>
+                    <p>Launch the F-Droid app on your Android device and navigate to <strong>Settings &rarr; Repositories</strong>.</p>
+                  </div>
+                </li>
+                <li class="install-step-item">
+                  <span class="step-num">2</span>
+                  <div class="step-content">
+                    <h5>Add Repository</h5>
+                    <p>Tap the <strong>+ (Add)</strong> button in the top right or scan the QR code directly using your phone's camera.</p>
+                  </div>
+                </li>
+                <li class="install-step-item">
+                  <span class="step-num">3</span>
+                  <div class="step-content">
+                    <h5>Paste Repository Address</h5>
+                    <p>Paste the copied address <code>https://rsr-projects.github.io/RSR-FDroid/fdroid/repo</code> and confirm.</p>
+                  </div>
+                </li>
+                <li class="install-step-item">
+                  <span class="step-num">4</span>
+                  <div class="step-content">
+                    <h5>Sync and Install CastDrive</h5>
+                    <p>Refresh your repository index. Search for <strong>CastDrive</strong> to install and receive future updates automatically.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <!-- Steps for Neo Store / Droid-ify -->
+            <div data-client-panel="neostore" style="display: none;">
+              <ol class="install-steps">
+                <li class="install-step-item">
+                  <span class="step-num">1</span>
+                  <div class="step-content">
+                    <h5>Open Sources / Repositories</h5>
+                    <p>In Neo Store or Droid-ify, open <strong>Repositories</strong> (or Sources) from the bottom navigation or menu.</p>
+                  </div>
+                </li>
+                <li class="install-step-item">
+                  <span class="step-num">2</span>
+                  <div class="step-content">
+                    <h5>Add New Source</h5>
+                    <p>Tap <strong>Add Repository</strong>, enter a label (e.g. "RSR-Projects"), and paste the repository URL.</p>
+                  </div>
+                </li>
+                <li class="install-step-item">
+                  <span class="step-num">3</span>
+                  <div class="step-content">
+                    <h5>Save & Sync</h5>
+                    <p>Save the new source. The client will automatically fetch and verify the signed repository metadata index.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <!-- Direct Fallback APK Card -->
+            <div class="direct-download-card">
+              <div class="direct-download-info">
+                <h5>Prefer direct installation?</h5>
+                <p>Download the signed standalone APK without adding the repository.</p>
+              </div>
+              <a href="./fdroid/repo/CastDrive.apk" class="btn btn-secondary btn-sm" download>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>Download CastDrive.apk</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- QR Code Sidecard -->
+          <div class="qr-card">
+            <div class="qr-frame">
+              <img src="./assets/qr-code.svg" alt="QR Code to add RSR-Projects F-Droid repository" width="200" height="200">
+            </div>
+
+            <div class="qr-caption">
+              <h4>Scan to Add Repository</h4>
+              <p>Point your F-Droid client scanner or camera to add the repository automatically on your device.</p>
+              <button class="btn btn-secondary btn-sm" data-copy-target="https://rsr-projects.github.io/RSR-FDroid/fdroid/repo">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copy Repo Address</span>
+              </button>
+            </div>
+
+            <div class="supported-clients">
+              <span>Compatible Clients</span>
+              <div class="client-pills">
+                <span class="client-pill">F-Droid</span>
+                <span class="client-pill">Neo Store</span>
+                <span class="client-pill">Droid-ify</span>
+                <span class="client-pill">Aurora Droid</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- More Projects Section -->
+    <section id="ecosystem">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-pretitle">Organization Portfolio</span>
+          <h2 class="section-title">RSR-Projects Ecosystem</h2>
+          <p class="section-desc">
+            Projects actively maintained or under development within the RSR-Projects open-source organization.
+          </p>
+        </div>
+
+        <div class="ecosystem-grid">
+          <!-- Project 1: CastDrive -->
+          <div class="project-card">
+            <div class="project-card-header">
+              <div class="project-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <span class="badge badge-stable">v1.0.0 &bull; Active</span>
+            </div>
+            <h4>CastDrive</h4>
+            <p>Android screen mirroring transmitter and multi-platform receiver system for automotive stereos, tablets, and web browsers with reverse touch support.</p>
+            <div class="project-card-footer">
+              <span class="project-status">Primary App</span>
+              <a href="https://github.com/RSR-Projects/CastDrive" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+                <span>View Repository &rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 2: RSR-FDroid -->
+          <div class="project-card">
+            <div class="project-card-header">
+              <div class="project-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <span class="badge badge-stable">Production &bull; Active</span>
+            </div>
+            <h4>RSR-FDroid</h4>
+            <p>Automated F-Droid third-party repository and GitHub Pages publishing workflow, featuring cryptographic index signing and APK distribution.</p>
+            <div class="project-card-footer">
+              <span class="project-status">Infrastructure</span>
+              <a href="https://github.com/RSR-Projects/RSR-FDroid" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+                <span>View Repository &rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 3: Planned Projects -->
+          <div class="project-card">
+            <div class="project-card-header">
+              <div class="project-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <span class="badge badge-experimental">In Planning</span>
+            </div>
+            <h4>Ecosystem Companion Tools</h4>
+            <p>Future companion utilities, wireless bridge helpers, and audio forwarding extensions designed to integrate with the RSR multi-screen ecosystem.</p>
+            <div class="project-card-footer">
+              <span class="project-status">Planned Feature</span>
+              <span class="badge badge-license">Roadmap</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="brand-mark" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <span class="brand-name">RSR-Projects</span>
+          </div>
+          <p>
+            Open-source Android software ecosystem dedicated to practical connectivity, zero telemetry, and independent distribution.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>CastDrive</h5>
+          <ul class="footer-links">
+            <li><a href="https://github.com/RSR-Projects/CastDrive" target="_blank" rel="noopener noreferrer">Source Code</a></li>
+            <li><a href="https://github.com/RSR-Projects/CastDrive/releases" target="_blank" rel="noopener noreferrer">Releases & Changelogs</a></li>
+            <li><a href="https://github.com/RSR-Projects/CastDrive/issues" target="_blank" rel="noopener noreferrer">Issue Tracker</a></li>
+            <li><a href="./fdroid/repo/CastDrive.apk" download>Direct APK Download</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Repository</h5>
+          <ul class="footer-links">
+            <li><a href="#fdroid-repo">Add Repository</a></li>
+            <li><a href="https://github.com/RSR-Projects/RSR-FDroid" target="_blank" rel="noopener noreferrer">RSR-FDroid Source</a></li>
+            <li><a href="https://github.com/RSR-Projects" target="_blank" rel="noopener noreferrer">GitHub Organization</a></li>
+            <li><a href="https://github.com/RSR-Projects/RSR-FDroid/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Third-party Disclaimer Notice -->
+      <div class="footer-disclaimer-box">
+        <p>
+          <strong>Disclaimer:</strong> RSR-Projects F-Droid repository is a third-party software repository operated independently by RSR-Projects. It is not affiliated with, sponsored by, or officially endorsed by the F-Droid project, the F-Droid maintainers, or Google LLC. Android is a trademark of Google LLC.
+        </p>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; RSR-Projects. Released under the MIT License.
+        </div>
+        <button class="back-to-top" aria-label="Scroll back to top">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+          <span>Back to Top</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>
