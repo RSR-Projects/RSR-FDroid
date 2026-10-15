@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "fdroid/**"
+      - "web/**"
       - ".github/workflows/publish-fdroid.yml"
   workflow_dispatch:
 
@@ -54,6 +55,7 @@ jobs:
         run: |
           mkdir -p site/fdroid
           cp -a fdroid/repo site/fdroid/repo
+          cp -a web/* site/
 
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
