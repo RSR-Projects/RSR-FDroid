@@ -4,13 +4,22 @@
  * Updated for CastDrive v2.0.0 (Android & Windows PC)
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+function initApp() {
   initCopyButtons();
   initScreenshotGallery();
+  initVideoPlayer();
+  initMusicPlayer();
+  initBtsLightbox();
   initMobileNav();
   initClientTabs();
   initBackToTop();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
 
 /**
  * Copy to clipboard with toast notification & accessible live updates
@@ -297,6 +306,275 @@ function initScreenshotGallery() {
   // Initial render
   renderThumbnails();
   updateGallery(0);
+}
+
+/**
+ * YouTube Video Spotlight switcher
+ */
+function initVideoPlayer() {
+  const videoCards = document.querySelectorAll('.yt-video-card');
+  const iframe = document.getElementById('spotlight-video-iframe');
+  const titleEl = document.getElementById('spotlight-video-title');
+  const linkEl = document.getElementById('spotlight-video-link');
+  const fileWarning = document.getElementById('local-file-warning');
+
+  if (!videoCards.length) return;
+
+  // Detect local file protocol where YouTube embed security blocks playback (Error 153)
+  if (fileWarning && window.location.protocol === 'file:') {
+    fileWarning.style.display = 'flex';
+  }
+
+  if (iframe) {
+    iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+  }
+
+  videoCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const vidId = card.getAttribute('data-video-id');
+      const title = card.getAttribute('data-video-title');
+      const url = card.getAttribute('data-video-url');
+
+      videoCards.forEach(c => {
+        c.classList.remove('active');
+        c.setAttribute('aria-selected', 'false');
+      });
+      card.classList.add('active');
+      card.setAttribute('aria-selected', 'true');
+
+      if (iframe) {
+        iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+        iframe.src = `https://www.youtube.com/embed/${vidId}?rel=0&enablejsapi=1&autoplay=1`;
+      }
+      if (titleEl) titleEl.textContent = title;
+      if (linkEl) linkEl.href = url;
+    });
+  });
+}
+
+/**
+ * Audio Preview & Original Music Player
+ */
+function initMusicPlayer() {
+  const tracks = [
+    {
+      id: '5-rx3Cs2Mdc',
+      title: 'RSR Retro Velocity',
+      subtitle: 'Original Retro Electronic Music',
+      duration: '3:32',
+      ytUrl: 'https://www.youtube.com/watch?v=5-rx3Cs2Mdc',
+      artwork: './assets/yt-thumbnails/5-rx3Cs2Mdc.jpg',
+      audioSrc: '' // User can drop local track into ./audio/retro-velocity.mp3
+    },
+    {
+      id: 'MdFTmiHD2_k',
+      title: 'RSR Desi Fusion',
+      subtitle: 'Original Indian × Punjabi Electronic Fusion',
+      duration: '3:37',
+      ytUrl: 'https://www.youtube.com/watch?v=MdFTmiHD2_k',
+      artwork: './assets/yt-thumbnails/MdFTmiHD2_k.jpg',
+      audioSrc: ''
+    },
+    {
+      id: 'NlQALiNqT5k',
+      title: 'MT-35 Odyssey',
+      subtitle: 'Casio MT-35 Hardware Synth × FL Studio',
+      duration: '1:46',
+      ytUrl: 'https://www.youtube.com/watch?v=NlQALiNqT5k',
+      artwork: './assets/yt-thumbnails/NlQALiNqT5k.jpg',
+      audioSrc: ''
+    },
+    {
+      id: '6KGInvYU9ws',
+      title: 'Advanced Bass Beats',
+      subtitle: 'Original Music & Heavy Basslines',
+      duration: '1:17',
+      ytUrl: 'https://www.youtube.com/watch?v=6KGInvYU9ws',
+      artwork: './assets/yt-thumbnails/6KGInvYU9ws.jpg',
+      audioSrc: ''
+    },
+    {
+      id: 'smfY9w6SkGw',
+      title: 'Chord Progression #1',
+      subtitle: 'Harmonic Synthesis & Melodic Arrangement',
+      duration: '1:52',
+      ytUrl: 'https://www.youtube.com/watch?v=smfY9w6SkGw',
+      artwork: './assets/yt-thumbnails/smfY9w6SkGw.jpg',
+      audioSrc: ''
+    }
+  ];
+
+  let currentTrackIdx = 0;
+  let isPlaying = false;
+  const audio = new Audio();
+
+  const artworkEl = document.getElementById('player-artwork-img');
+  const titleEl = document.getElementById('player-track-title');
+  const subEl = document.getElementById('player-track-sub');
+  const playBtn = document.getElementById('player-play-btn');
+  const progressBar = document.getElementById('player-progress-bar');
+  const progressFill = document.getElementById('player-progress-fill');
+  const currTimeEl = document.getElementById('player-current-time');
+  const durTimeEl = document.getElementById('player-duration-time');
+  const volumeSlider = document.getElementById('player-volume-slider');
+  const ytListenBtn = document.getElementById('player-yt-listen-btn');
+  const downloadBtn = document.getElementById('player-download-btn');
+  const trackPillBtns = document.querySelectorAll('.track-pill-btn');
+
+  if (!playBtn) return;
+
+  function loadTrack(index) {
+    currentTrackIdx = index;
+    const track = tracks[currentTrackIdx];
+
+    if (artworkEl) artworkEl.src = track.artwork;
+    if (titleEl) titleEl.textContent = track.title;
+    if (subEl) subEl.textContent = track.subtitle;
+    if (durTimeEl) durTimeEl.textContent = track.duration;
+    if (currTimeEl) currTimeEl.textContent = '0:00';
+    if (progressFill) progressFill.style.width = '0%';
+    if (ytListenBtn) ytListenBtn.href = track.ytUrl;
+
+    // Check if original audio file is supplied by creator
+    if (track.audioSrc) {
+      audio.src = track.audioSrc;
+      if (downloadBtn) {
+        downloadBtn.style.display = 'inline-flex';
+        downloadBtn.href = track.audioSrc;
+      }
+    } else {
+      audio.removeAttribute('src');
+      if (downloadBtn) downloadBtn.style.display = 'none';
+    }
+
+    trackPillBtns.forEach((btn, i) => {
+      const isMatch = i === index;
+      btn.classList.toggle('active', isMatch);
+      btn.setAttribute('aria-selected', isMatch.toString());
+    });
+
+    if (isPlaying && track.audioSrc) {
+      audio.play().catch(() => {});
+    } else {
+      setPlayState(false);
+    }
+  }
+
+  function setPlayState(playing) {
+    isPlaying = playing;
+    if (playBtn) {
+      playBtn.innerHTML = isPlaying
+        ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`
+        : `<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+      playBtn.setAttribute('aria-label', isPlaying ? 'Pause audio' : 'Play audio');
+    }
+  }
+
+  playBtn.addEventListener('click', () => {
+    const track = tracks[currentTrackIdx];
+    if (track.audioSrc) {
+      if (isPlaying) {
+        audio.pause();
+        setPlayState(false);
+      } else {
+        audio.play().then(() => setPlayState(true)).catch(e => console.error(e));
+      }
+    } else {
+      // If local audio is not supplied yet, activate YouTube spotlight video
+      const card = document.querySelector(`.yt-video-card[data-video-id="${track.id}"]`);
+      if (card) {
+        card.click();
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        window.open(track.ytUrl, '_blank', 'noopener,noreferrer');
+      }
+    }
+  });
+
+  audio.addEventListener('timeupdate', () => {
+    if (audio.duration) {
+      const pct = (audio.currentTime / audio.duration) * 100;
+      if (progressFill) progressFill.style.width = `${pct}%`;
+      const mins = Math.floor(audio.currentTime / 60);
+      const secs = Math.floor(audio.currentTime % 60);
+      if (currTimeEl) currTimeEl.textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+  });
+
+  audio.addEventListener('ended', () => {
+    setPlayState(false);
+    if (progressFill) progressFill.style.width = '0%';
+  });
+
+  if (progressBar) {
+    progressBar.addEventListener('click', (e) => {
+      if (audio.duration) {
+        const rect = progressBar.getBoundingClientRect();
+        const pos = (e.clientX - rect.left) / rect.width;
+        audio.currentTime = pos * audio.duration;
+      }
+    });
+  }
+
+  if (volumeSlider) {
+    volumeSlider.addEventListener('input', (e) => {
+      audio.volume = parseFloat(e.target.value);
+    });
+  }
+
+  trackPillBtns.forEach((btn, idx) => {
+    btn.addEventListener('click', () => loadTrack(idx));
+  });
+
+  loadTrack(0);
+}
+
+/**
+ * Behind the Scenes Modal / Lightbox for DAW screenshots
+ */
+function initBtsLightbox() {
+  const modal = document.getElementById('bts-lightbox-modal');
+  const modalImg = document.getElementById('bts-modal-image');
+  const modalCaption = document.getElementById('bts-modal-caption');
+  const closeBtn = document.getElementById('bts-modal-close-btn');
+  const btsTriggers = document.querySelectorAll('[data-bts-img]');
+
+  if (!modal || !modalImg) return;
+
+  function openModal(src, caption) {
+    modalImg.src = src;
+    if (modalCaption) modalCaption.textContent = caption;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    modalImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  btsTriggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const src = trigger.getAttribute('data-bts-img');
+      const caption = trigger.getAttribute('data-bts-caption') || '';
+      openModal(src, caption);
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
 }
 
 /**
