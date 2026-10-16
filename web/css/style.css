@@ -682,6 +682,62 @@ section {
   font-size: 0.7rem;
 }
 
+/* PC Second Display / Dual Platform Banner */
+.pc-display-banner {
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.07), rgba(0, 85, 255, 0.07));
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  margin-bottom: 36px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.pc-display-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--accent-cyan), var(--accent-blue));
+}
+.pc-display-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.pc-display-header h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+.pc-display-desc {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.pc-feature-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.pc-feature-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.22);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--accent-cyan);
+}
+
 /* Feature grid */
 .feature-grid {
   display: grid;
@@ -907,6 +963,72 @@ section {
   height: 100%;
   object-fit: cover;
   border-radius: 3px;
+}
+
+/* Gallery category tabs (Android & Windows PC) */
+.gallery-tabs-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.gallery-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.gallery-tab-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.gallery-tab-btn.active {
+  color: var(--accent-cyan);
+  background: rgba(0, 240, 255, 0.08);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 16px var(--accent-cyan-glow);
+}
+
+.gallery-tab-badge {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-size: 0.72rem;
+}
+
+.gallery-tab-btn.active .gallery-tab-badge {
+  background: rgba(0, 240, 255, 0.2);
+  color: var(--accent-cyan);
+}
+
+/* PC Screenshot Frame & Thumbnail adjustments */
+.gallery-preview-frame.frame-pc {
+  aspect-ratio: 16 / 10;
+  max-width: 100%;
+  border-radius: 14px;
+}
+.gallery-preview-frame.frame-pc img {
+  object-fit: contain;
+  background: #060911;
+}
+
+.thumb-btn.thumb-pc {
+  aspect-ratio: 16 / 10;
 }
 
 /* ==========================================================================
@@ -1169,6 +1291,141 @@ section {
   border: 1px solid var(--border-subtle);
   padding: 4px 10px;
   border-radius: var(--radius-sm);
+}
+
+/* Direct Platform Downloads */
+.platform-download-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.platform-card {
+  background: rgba(17, 26, 46, 0.45);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  transition: all var(--transition-fast);
+  min-width: 0;
+}
+.platform-card:hover {
+  border-color: var(--accent-cyan);
+  background: rgba(17, 26, 46, 0.65);
+}
+.platform-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.platform-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(0, 240, 255, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+}
+.platform-meta {
+  min-width: 0;
+}
+.platform-meta h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+.platform-meta p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+.platform-details {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.platform-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Changelog Section */
+.changelog-section {
+  padding-top: 20px;
+  width: 100%;
+}
+.changelog-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.changelog-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  box-shadow: var(--shadow-card);
+  width: 100%;
+}
+.changelog-card.latest {
+  border-color: rgba(0, 240, 255, 0.35);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.08);
+}
+.changelog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 18px;
+}
+.changelog-version-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.changelog-version {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+.changelog-date {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.changelog-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+}
+.changelog-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+.changelog-item svg {
+  color: var(--accent-cyan);
+  margin-top: 3px;
+  flex-shrink: 0;
 }
 
 /* ==========================================================================

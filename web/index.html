@@ -60,6 +60,8 @@
         <a href="#castdrive" class="nav-link">CastDrive</a>
         <a href="#screenshots" class="nav-link">Screenshots</a>
         <a href="#fdroid-repo" class="nav-link">F-Droid Repository</a>
+        <a href="#downloads" class="nav-link">Downloads</a>
+        <a href="#changelog" class="nav-link">Changelog</a>
         <a href="#ecosystem" class="nav-link">Ecosystem</a>
       </nav>
 
@@ -87,7 +89,7 @@
         <div class="hero-badge-wrap">
           <div class="hero-badge">
             <span class="hero-badge-dot"></span>
-            <span>RSR-Projects &bull; Autonomous Open-Source Android Tooling</span>
+            <span>CastDrive v2.0.0 (versionCode 3) Released &bull; Android & Windows PC Ecosystem</span>
           </div>
         </div>
 
@@ -97,7 +99,7 @@
         </h1>
 
         <p class="hero-lead">
-          Building practical, privacy-first software to connect Android devices, car head units, and desktop computers. Distributing verified builds through an automated, self-hosted F-Droid repository.
+          Building practical, privacy-first software to connect Android devices, car head units, and Windows PCs. Use your phone as an extended PC secondary display (Spacedesk style), mirror screens with reverse touch, and distribute verified builds through an automated F-Droid repository.
         </p>
 
         <div class="hero-cta">
@@ -158,7 +160,8 @@
               <div class="app-headings">
                 <h3>CastDrive</h3>
                 <div class="app-meta-badges">
-                  <span class="badge badge-stable">v1.0.0 Stable</span>
+                  <span class="badge badge-stable">v2.0.0 (versionCode 3)</span>
+                  <span class="badge badge-license">Android &bull; Windows PC</span>
                   <span class="badge badge-license">MIT License</span>
                   <span class="badge badge-license">Category: Connectivity</span>
                 </div>
@@ -178,7 +181,7 @@
                   <polyline points="7 10 12 15 17 10"></polyline>
                   <line x1="12" y1="15" x2="12" y2="3"></line>
                 </svg>
-                <span>Releases</span>
+                <span>Releases (v2.0.0)</span>
               </a>
               <a href="https://github.com/RSR-Projects/CastDrive/issues" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -194,28 +197,65 @@
           <!-- Architecture Concept Banner -->
           <div class="concept-banner">
             <div class="concept-text">
-              <h4>Transmitter &harr; Receiver Architecture</h4>
-              <p>Your primary Android phone acts as the high-speed transmitter. Compatible secondary displays receive screen, audio, and send reverse touch inputs.</p>
+              <h4>Transmitter &harr; Receiver Dual Architecture</h4>
+              <p>CastDrive supports both directions: mirror your phone to another display with reverse touch, or turn your phone/tablet into a wireless secondary monitor for Windows (Spacedesk style).</p>
             </div>
             <div class="arch-flow">
               <div class="arch-node">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-                <span>Phone (Tx)</span>
+                <span>Phone / Tablet</span>
               </div>
               <div class="arch-arrow">
-                <span>Screen & Audio &rarr;</span>
-                <span>&larr; Reverse Touch</span>
+                <span>&larr; Spacedesk 2nd Display / Mirror &rarr;</span>
+                <span>&larr; Touch & Audio Stream &rarr;</span>
               </div>
               <div class="arch-node">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                <span>Car / PC / Tablet (Rx)</span>
+                <span>Windows PC / Car / Browser</span>
               </div>
+            </div>
+          </div>
+
+          <!-- PC Second Display Highlight Banner -->
+          <div class="pc-display-banner">
+            <div class="pc-display-header">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+              <h4>New in v2.0.0: Phone as PC Second Display (Spacedesk Style) & Windows App</h4>
+            </div>
+            <p class="pc-display-desc">
+              Transform any Android phone or tablet into an independent wireless or USB-wired secondary monitor for your Windows PC or laptop. Powered by the companion <code>CastDrivePC.exe</code> client, you can extend your desktop workspace with uncropped aspect ratios, low latency, and full touchscreen/mouse control.
+            </p>
+            <div class="pc-feature-pills">
+              <span class="pc-feature-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Extended Desktop Display
+              </span>
+              <span class="pc-feature-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Wireless or USB Wired
+              </span>
+              <span class="pc-feature-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Touchscreen & Mouse Input
+              </span>
+              <span class="pc-feature-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Synchronized Audio
+              </span>
+              <span class="pc-feature-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Cast Phone to PC Mode
+              </span>
             </div>
           </div>
 
           <!-- Feature Cards Grid -->
           <div class="feature-grid">
-            <!-- Feature 1: Native Receiver -->
+            <!-- Feature 1: Screen Mirroring & Native Receiver -->
             <div class="feature-card">
               <div class="feature-icon-wrap" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -224,16 +264,51 @@
                   <line x1="12" y1="17" x2="12" y2="21"></line>
                 </svg>
               </div>
-              <h4>Native Android Receiver</h4>
-              <p>Run CastDrive on a second Android device, car stereo, or tablet to receive real-time, low-latency video transmission in full-screen with dedicated connection status controls.</p>
+              <h4>Screen Mirroring & Native Receiver</h4>
+              <p>Run CastDrive on a second Android device, tablet, or car stereo to receive real-time screen mirroring in full-screen with dedicated connection controls and low-latency delivery.</p>
               <div class="feature-tags">
-                <span class="feature-tag">Low-Latency</span>
+                <span class="feature-tag">App Receiver</span>
                 <span class="feature-tag">Fullscreen</span>
-                <span class="feature-tag">Native UI</span>
+                <span class="feature-tag">Low-Latency</span>
               </div>
             </div>
 
-            <!-- Feature 2: Reverse Touch Control -->
+            <!-- Feature 2: Windows PC Desktop Application -->
+            <div class="feature-card">
+              <div class="feature-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <h4>Windows PC Desktop App (`CastDrivePC.exe`)</h4>
+              <p>Official standalone Windows application supporting dual workflows: mirror your phone to PC with full audio & reverse mouse control, or stream Windows to your phone as an extended second display (Spacedesk style).</p>
+              <div class="feature-tags">
+                <span class="feature-tag">Windows 10/11</span>
+                <span class="feature-tag">Spacedesk Style</span>
+                <span class="feature-tag">Dual Mode</span>
+              </div>
+            </div>
+
+            <!-- Feature 3: Multiple Performance Modes -->
+            <div class="feature-card">
+              <div class="feature-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 14 14"></polyline>
+                </svg>
+              </div>
+              <h4>Multiple Performance Modes</h4>
+              <p>Choose between <strong>Performance</strong>, <strong>Balanced</strong>, and <strong>High-End</strong> modes, allowing users to tailor resolution, frame rate, and encoder load to match their device and network capacity.</p>
+              <div class="feature-tags">
+                <span class="feature-tag">Performance</span>
+                <span class="feature-tag">Balanced</span>
+                <span class="feature-tag">High-End</span>
+              </div>
+            </div>
+
+            <!-- Feature 4: Touchscreen & Mouse Interaction -->
             <div class="feature-card">
               <div class="feature-icon-wrap" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -243,16 +318,16 @@
                   <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path>
                 </svg>
               </div>
-              <h4>Reverse Touchscreen Control</h4>
-              <p>Enables two-way interaction. The receiving touchscreen can send taps, drags, swipes, and system navigation commands (Back, Home, Recents) back to the transmitter using Android's Accessibility framework without requiring root.</p>
+              <h4>Touchscreen & Mouse Interaction</h4>
+              <p>Supported through both the web-browser receiver and the dedicated app receiver. Sends taps, drags, swipes, and mouse navigation back to the host without requiring root permissions.</p>
               <div class="feature-tags">
+                <span class="feature-tag">Browser & App</span>
+                <span class="feature-tag">Reverse Touch</span>
                 <span class="feature-tag">No Root Required</span>
-                <span class="feature-tag">Accessibility API</span>
-                <span class="feature-tag">Two-Way Input</span>
               </div>
             </div>
 
-            <!-- Feature 3: Internal Audio Mirroring -->
+            <!-- Feature 5: Universal Audio Support -->
             <div class="feature-card">
               <div class="feature-icon-wrap" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -260,48 +335,12 @@
                   <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                 </svg>
               </div>
-              <h4>Internal Audio Mirroring</h4>
-              <p>Supports capturing and transmitting internal Android system audio along with the video stream in supported native receiver configurations and tested browser setups.</p>
+              <h4>Universal Audio Support</h4>
+              <p>Stream real-time system audio in sync with the video feed. Internal audio capture is available through both the dedicated app receiver and web-browser receiver options.</p>
               <div class="feature-tags">
                 <span class="feature-tag">Audio Stream</span>
-                <span class="feature-tag">Native & Browser</span>
-                <span class="feature-tag">Synchronized</span>
-              </div>
-            </div>
-
-            <!-- Feature 4: Display & Rotation Controls -->
-            <div class="feature-card">
-              <div class="feature-icon-wrap" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="23 4 23 10 17 10"></polyline>
-                  <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-                </svg>
-              </div>
-              <h4>Display & Rotation Controls</h4>
-              <p>Fine-grained controls tailored for automotive head units: toggle between Fit, Fill, and Fullscreen modes, plus instant screen rotation to 0&deg;, 90&deg;, 180&deg;, or 270&deg; orientation.</p>
-              <div class="feature-tags">
-                <span class="feature-tag">Fit / Fill</span>
-                <span class="feature-tag">0&deg; to 270&deg;</span>
-                <span class="feature-tag">Head Unit Ready</span>
-              </div>
-            </div>
-
-            <!-- Feature 5: Flexible Connectivity -->
-            <div class="feature-card">
-              <div class="feature-icon-wrap" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
-                  <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
-                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
-                  <line x1="12" y1="20" x2="12.01" y2="20"></line>
-                </svg>
-              </div>
-              <h4>Multiple Connection Modes</h4>
-              <p>Connect over local Wi-Fi with automatic UDP discovery, use the phone's Wi-Fi hotspot when away from home, or utilize USB tethering for direct wired low-latency links.</p>
-              <div class="feature-tags">
-                <span class="feature-tag">UDP Discovery</span>
-                <span class="feature-tag">Wi-Fi Hotspot</span>
-                <span class="feature-tag">USB Tethering (Exp.)</span>
+                <span class="feature-tag">App Receiver</span>
+                <span class="feature-tag">Browser Receiver</span>
               </div>
             </div>
 
@@ -315,11 +354,47 @@
                 </svg>
               </div>
               <h4>Zero-Install Browser Receiver</h4>
-              <p>Turn any PC, laptop, or browser-equipped device on your network into a receiver simply by opening <code>http://&lt;phone-ip&gt;:8080</code>. No dedicated PC installation required.</p>
+              <p>Turn any computer, smart display, or laptop into a receiver simply by visiting <code>http://&lt;phone-ip&gt;:8080</code> in any modern browser. Supports audio, reverse touch, and full-screen view.</p>
               <div class="feature-tags">
                 <span class="feature-tag">Web-Based</span>
-                <span class="feature-tag">PC Display</span>
+                <span class="feature-tag">Port 8080</span>
                 <span class="feature-tag">Zero Installation</span>
+              </div>
+            </div>
+
+            <!-- Feature 7: Display & Rotation Controls -->
+            <div class="feature-card">
+              <div class="feature-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="23 4 23 10 17 10"></polyline>
+                  <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                </svg>
+              </div>
+              <h4>Display & Rotation Controls</h4>
+              <p>Optimized for automotive dashboard screens and tablets: toggle between Fit, Fill, and Fullscreen modes with instant rotation to 0&deg;, 90&deg;, 180&deg;, or 270&deg; orientation.</p>
+              <div class="feature-tags">
+                <span class="feature-tag">Fit / Fill</span>
+                <span class="feature-tag">0&deg; to 270&deg;</span>
+                <span class="feature-tag">Head Unit Ready</span>
+              </div>
+            </div>
+
+            <!-- Feature 8: Experimental USB Tethering & Android Auto -->
+            <div class="feature-card">
+              <div class="feature-icon-wrap" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                  <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                </svg>
+              </div>
+              <h4>Experimental USB Tethering & Android Auto</h4>
+              <p>Direct USB tethering mode provides ultra-low latency wired connectivity when wireless channels are congested. Experimental Android Auto companion integration allows testing display casting on supported car head units.</p>
+              <div class="feature-tags">
+                <span class="feature-tag">USB Tethering (Exp.)</span>
+                <span class="feature-tag">Android Auto (Exp.)</span>
+                <span class="feature-tag">Experimental</span>
               </div>
             </div>
           </div>
@@ -351,6 +426,20 @@
           </p>
         </div>
 
+        <!-- Gallery Category Switcher (Android & PC) -->
+        <div class="gallery-tabs-wrap" role="tablist" aria-label="Screenshot Categories">
+          <button class="gallery-tab-btn active" data-gallery-tab="android" role="tab" aria-selected="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            <span>Android App</span>
+            <span class="gallery-tab-badge">8</span>
+          </button>
+          <button class="gallery-tab-btn" data-gallery-tab="pc" role="tab" aria-selected="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            <span>Windows PC App</span>
+            <span class="gallery-tab-badge">4</span>
+          </button>
+        </div>
+
         <div class="gallery-container">
           <div class="gallery-main-view">
             <div class="gallery-preview-frame">
@@ -358,7 +447,7 @@
             </div>
 
             <div class="gallery-info-pane">
-              <span id="gallery-counter" class="gallery-counter">Screenshot 1 of 8</span>
+              <span id="gallery-counter" class="gallery-counter">Android App &bull; Screenshot 1 of 8</span>
               <h3 id="gallery-title" class="gallery-title">Transmitter Control Hub</h3>
               <p id="gallery-desc" class="gallery-desc">
                 Main interface on the Android phone. Shows real-time connection status, transmitter toggle, receiver IP input, port, and audio configuration.
@@ -382,7 +471,7 @@
           </div>
 
           <!-- Thumbnails Strip -->
-          <div class="thumb-strip" role="tablist" aria-label="CastDrive Screenshots">
+          <div id="gallery-thumb-strip" class="thumb-strip" role="tablist" aria-label="CastDrive Screenshots">
             <button class="thumb-btn active" role="tab" aria-selected="true" aria-label="View screenshot 1: Transmitter Control Hub">
               <img src="./assets/screenshots/1.png" alt="" loading="lazy">
             </button>
@@ -520,20 +609,72 @@
               </ol>
             </div>
 
-            <!-- Direct Fallback APK Card -->
-            <div class="direct-download-card">
-              <div class="direct-download-info">
-                <h5>Prefer direct installation?</h5>
-                <p>Download the signed standalone APK without adding the repository.</p>
+            <!-- Direct Download Cards for Android & Windows PC -->
+            <div id="downloads" class="platform-download-grid">
+              <!-- Android Download Card -->
+              <div class="platform-card">
+                <div class="platform-card-header">
+                  <div class="platform-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                      <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                    </svg>
+                  </div>
+                  <div class="platform-meta">
+                    <h5>CastDrive for Android</h5>
+                    <p>v2.0.0 &bull; versionCode 3</p>
+                  </div>
+                </div>
+                <div class="platform-details">
+                  Direct standalone APK package for smartphones, tablets, and automotive head units without requiring F-Droid.
+                </div>
+                <div class="platform-actions">
+                  <a href="./fdroid/repo/CastDrive.apk" class="btn btn-secondary btn-sm" download>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <span>Download APK</span>
+                  </a>
+                  <a href="https://github.com/RSR-Projects/CastDrive/releases/tag/v2.0.0" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+                    <span>Release Notes</span>
+                  </a>
+                </div>
               </div>
-              <a href="./fdroid/repo/CastDrive.apk" class="btn btn-secondary btn-sm" download>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span>Download CastDrive.apk</span>
-              </a>
+
+              <!-- Windows PC Download Card -->
+              <div class="platform-card">
+                <div class="platform-card-header">
+                  <div class="platform-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                      <line x1="8" y1="21" x2="16" y2="21"></line>
+                      <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                  </div>
+                  <div class="platform-meta">
+                    <h5>CastDrive for Windows PC</h5>
+                    <p>v2.0.0 &bull; CastDrivePC.exe</p>
+                  </div>
+                </div>
+                <div class="platform-details">
+                  Dual-mode desktop client for Windows 10/11: receive phone mirrors or use phone as an extended PC second display (Spacedesk style).
+                </div>
+                <div class="platform-actions">
+                  <a href="https://github.com/RSR-Projects/CastDrive/releases/download/v2.0.0/CastDrivePC.exe" class="btn btn-secondary btn-sm">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <span>Download PC Client</span>
+                  </a>
+                  <a href="https://github.com/RSR-Projects/CastDrive/releases/tag/v2.0.0" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+                    <span>Release Notes</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -566,6 +707,95 @@
       </div>
     </section>
 
+    <!-- Changelog & Release History Section -->
+    <section id="changelog" class="changelog-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-pretitle">Version History</span>
+          <h2 class="section-title">Release Notes &amp; Changelog</h2>
+          <p class="section-desc">
+            Documented release history and verified updates for CastDrive and repository components.
+          </p>
+        </div>
+
+        <div class="changelog-cards">
+          <!-- v2.0.0 Latest Release -->
+          <div class="changelog-card latest">
+            <div class="changelog-header">
+              <div class="changelog-version-wrap">
+                <span class="changelog-version">v2.0.0</span>
+                <span class="badge badge-stable">versionCode 3 &bull; Latest Release</span>
+              </div>
+              <span class="changelog-date">Current Production Build</span>
+            </div>
+            <ul class="changelog-list">
+              <li class="changelog-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Phone as PC Second Display (Spacedesk Style):</strong> Wirelessly or via USB, turn your Android phone or tablet into an independent secondary monitor for Windows with multi-touch and mouse interaction.</span>
+              </li>
+              <li class="changelog-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Official Windows PC Application (<code>CastDrivePC.exe</code>):</strong> Dual-mode companion app supporting Mode A (receive phone mirror with audio and touch feedback) and Mode B (extended desktop display server).</span>
+              </li>
+              <li class="changelog-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Configurable Performance Modes:</strong> Added Performance, Balanced, and High-End modes to balance latency, framerate, and hardware encoder load according to device and network conditions.</span>
+              </li>
+              <li class="changelog-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Two-Way Touchscreen &amp; Mouse Interaction:</strong> Reverse touch and mouse input supported through both the web-browser receiver and the dedicated app receiver without root permissions.</span>
+              </li>
+              <li class="changelog-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Universal Synchronized Audio:</strong> System audio streaming supported across both the dedicated app receiver and web-browser receiver options.</span>
+              </li>
+              <li class="changelog-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Experimental USB Tethering:</strong> Added direct wired link support for ultra-low latency in high-interference environments <em>(labeled experimental)</em>.</span>
+              </li>
+              <li class="changelog-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Experimental Android Auto Integration:</strong> Preliminary integration allowing automotive head unit display testing <em>(labeled experimental; compatibility varies)</em>.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- v1.0.0 Initial Release (Preserved History) -->
+          <div class="changelog-card">
+            <div class="changelog-header">
+              <div class="changelog-version-wrap">
+                <span class="changelog-version">v1.0.0</span>
+                <span class="badge badge-license">versionCode 1 &bull; Initial Release</span>
+              </div>
+              <span class="changelog-date">Historical Milestone</span>
+            </div>
+            <ul class="changelog-list">
+              <li class="changelog-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Initial release of CastDrive Android transmitter and native receiver for automotive stereos, tablets, and mobile devices.</span>
+              </li>
+              <li class="changelog-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Low-latency H.264 screen streaming over Wi-Fi and mobile hotspot with automatic UDP discovery.</span>
+              </li>
+              <li class="changelog-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Reverse touch input support via Android Accessibility Service.</span>
+              </li>
+              <li class="changelog-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Zero-install web-browser receiver server hosted on port 8080.</span>
+              </li>
+              <li class="changelog-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Launch of RSR-Projects third-party F-Droid repository with cryptographic signing.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- More Projects Section -->
     <section id="ecosystem">
       <div class="container">
@@ -588,10 +818,10 @@
                   <line x1="12" y1="17" x2="12" y2="21"></line>
                 </svg>
               </div>
-              <span class="badge badge-stable">v1.0.0 &bull; Active</span>
+              <span class="badge badge-stable">v2.0.0 &bull; Active</span>
             </div>
             <h4>CastDrive</h4>
-            <p>Android screen mirroring transmitter and multi-platform receiver system for automotive stereos, tablets, and web browsers with reverse touch support.</p>
+            <p>Android and Windows screen mirroring and extended secondary display ecosystem (Spacedesk style) with reverse touch, multi-performance modes, and synchronized audio.</p>
             <div class="project-card-footer">
               <span class="project-status">Primary App</span>
               <a href="https://github.com/RSR-Projects/CastDrive" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
@@ -670,9 +900,10 @@
           <h5>CastDrive</h5>
           <ul class="footer-links">
             <li><a href="https://github.com/RSR-Projects/CastDrive" target="_blank" rel="noopener noreferrer">Source Code</a></li>
-            <li><a href="https://github.com/RSR-Projects/CastDrive/releases" target="_blank" rel="noopener noreferrer">Releases & Changelogs</a></li>
+            <li><a href="https://github.com/RSR-Projects/CastDrive/releases/tag/v2.0.0" target="_blank" rel="noopener noreferrer">Releases (v2.0.0)</a></li>
             <li><a href="https://github.com/RSR-Projects/CastDrive/issues" target="_blank" rel="noopener noreferrer">Issue Tracker</a></li>
-            <li><a href="./fdroid/repo/CastDrive.apk" download>Direct APK Download</a></li>
+            <li><a href="./fdroid/repo/CastDrive.apk" download>CastDrive.apk (Android)</a></li>
+            <li><a href="https://github.com/RSR-Projects/CastDrive/releases/download/v2.0.0/CastDrivePC.exe">CastDrivePC.exe (Windows)</a></li>
           </ul>
         </div>
 
