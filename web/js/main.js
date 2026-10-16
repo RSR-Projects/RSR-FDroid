@@ -1,6 +1,7 @@
 /**
  * RSR-Projects Official Repository Website
  * Client-side script: interactions, copy-to-clipboard, screenshots carousel, client switcher
+ * Updated for CastDrive v2.0.0 (Android & Windows PC)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -103,95 +104,186 @@ function initCopyButtons() {
 }
 
 /**
- * Screenshot Gallery with live caption updates and keyboard support
+ * Screenshot Gallery with live caption updates, category switcher (Android & PC), and keyboard support
  */
 function initScreenshotGallery() {
-  const screenshots = [
-    {
-      num: 1,
-      title: 'Transmitter Control Hub',
-      desc: 'Main interface on the Android phone. Shows real-time connection status, transmitter toggle, receiver IP input, port, and audio configuration.'
-    },
-    {
-      num: 2,
-      title: 'Active Mirroring Session',
-      desc: 'Live streaming session active. Low-latency H.264 stream transmitted across the local Wi-Fi, hotspot, or USB tethered connection.'
-    },
-    {
-      num: 3,
-      title: 'Resolution & Bitrate Settings',
-      desc: 'Configurable stream encoder settings allowing users to balance latency and image quality for automotive head units or secondary displays.'
-    },
-    {
-      num: 4,
-      title: 'Audio Streaming Mode',
-      desc: 'Internal audio capture controls. Transmits system sound along with the screen to supported native Android receivers or tested browsers.'
-    },
-    {
-      num: 5,
-      title: 'Receiver Mode Interface',
-      desc: 'The receiving Android device running CastDrive in native receiver mode, ready for one-tap pairing and reverse touchscreen input.'
-    },
-    {
-      num: 6,
-      title: 'Display Aspect Ratio Controls',
-      desc: 'Fit, Fill, and Stretch aspect-ratio modes designed specifically to match various car dashboard screens, widescreen head units, and tablets.'
-    },
-    {
-      num: 7,
-      title: 'Multi-Angle Screen Rotation',
-      desc: 'Instant rotation adjustment between 0°, 90°, 180°, and 270° orientation to fit horizontal or vertical dashboard mounts.'
-    },
-    {
-      num: 8,
-      title: 'Automotive & Browser Connectivity',
-      desc: 'Connection manager overview showing local UDP discovery, Hotspot tethering, and browser endpoint address (http://<ip>:8080).'
-    }
-  ];
+  const galleries = {
+    android: [
+      {
+        num: 1,
+        src: './assets/screenshots/1.png',
+        title: 'Transmitter Control Hub',
+        desc: 'Main interface on the Android phone. Shows real-time connection status, transmitter toggle, receiver IP input, port, and audio configuration.'
+      },
+      {
+        num: 2,
+        src: './assets/screenshots/2.png',
+        title: 'Active Mirroring Session',
+        desc: 'Live streaming session active. Low-latency H.264 stream transmitted across the local Wi-Fi, hotspot, or USB tethered connection.'
+      },
+      {
+        num: 3,
+        src: './assets/screenshots/3.png',
+        title: 'Performance Modes & Resolution',
+        desc: 'Configurable stream encoder settings with Performance, Balanced, and High-End modes allowing users to balance latency and image quality for head units and secondary displays.'
+      },
+      {
+        num: 4,
+        src: './assets/screenshots/4.png',
+        title: 'Audio Streaming Mode',
+        desc: 'Internal audio capture controls. Transmits system sound along with the screen to supported native Android receivers, Windows PC client, or web browsers.'
+      },
+      {
+        num: 5,
+        src: './assets/screenshots/5.png',
+        title: 'Receiver Mode Interface',
+        desc: 'The receiving Android device running CastDrive in native receiver mode, ready for one-tap pairing and reverse touchscreen input.'
+      },
+      {
+        num: 6,
+        src: './assets/screenshots/6.png',
+        title: 'Display Aspect Ratio Controls',
+        desc: 'Fit, Fill, and Stretch aspect-ratio modes designed specifically to match various car dashboard screens, widescreen head units, and tablets.'
+      },
+      {
+        num: 7,
+        src: './assets/screenshots/7.png',
+        title: 'Multi-Angle Screen Rotation',
+        desc: 'Instant rotation adjustment between 0°, 90°, 180°, and 270° orientation to fit horizontal or vertical dashboard mounts.'
+      },
+      {
+        num: 8,
+        src: './assets/screenshots/8.png',
+        title: 'Automotive & Browser Connectivity',
+        desc: 'Connection manager overview showing local UDP discovery, Hotspot tethering, and browser endpoint address (http://<ip>:8080).'
+      }
+    ],
+    pc: [
+      {
+        num: 1,
+        src: './assets/pc-screenshots/pc-seconddisplay.png',
+        title: 'PC Second Display Server (Spacedesk Style)',
+        desc: 'Turns your Android phone or tablet into an independent secondary monitor with touchscreen feedback. Supports extended desktop streaming at native uncropped resolution with Microsoft IddCx driver integration.'
+      },
+      {
+        num: 2,
+        src: './assets/pc-screenshots/pc-castphone.png',
+        title: 'Receive Phone Mirror on PC',
+        desc: 'Mirror your Android screen to Windows with low-latency streaming, synchronized audio, Fit/Fill controls, rotation, and real-time reverse mouse and touch controls.'
+      },
+      {
+        num: 3,
+        src: './assets/pc-screenshots/pc-guide.png',
+        title: 'Built-in PC & Android Setup Guide',
+        desc: 'Integrated interactive setup guide for Mode A (Phone to PC mirror), Mode B (Phone as second display for PC), and Zero-Latency USB Tethering.'
+      },
+      {
+        num: 4,
+        src: './assets/pc-screenshots/pc-browser.png',
+        title: 'Zero-Install In-Browser Receiver Server',
+        desc: 'Built-in local web server address (http://<phone-ip>:8080) allowing any computer, tablet, or smart display on the network to view the stream directly via web browser.'
+      }
+    ]
+  };
 
+  let currentCategory = 'android';
   let currentIndex = 0;
+
+  const previewFrame = document.querySelector('.gallery-preview-frame');
   const previewImg = document.getElementById('gallery-preview-img');
   const counterEl = document.getElementById('gallery-counter');
   const titleEl = document.getElementById('gallery-title');
   const descEl = document.getElementById('gallery-desc');
   const prevBtn = document.getElementById('gallery-prev-btn');
   const nextBtn = document.getElementById('gallery-next-btn');
-  const thumbBtns = document.querySelectorAll('.thumb-btn');
+  const thumbStrip = document.getElementById('gallery-thumb-strip') || document.querySelector('.thumb-strip');
+  const categoryTabBtns = document.querySelectorAll('[data-gallery-tab]');
 
-  if (!previewImg || !thumbBtns.length) return;
+  if (!previewImg || !thumbStrip) return;
 
-  function updateGallery(index) {
-    if (index < 0) index = screenshots.length - 1;
-    if (index >= screenshots.length) index = 0;
-    currentIndex = index;
+  function renderThumbnails() {
+    const list = galleries[currentCategory];
+    thumbStrip.innerHTML = '';
 
-    const data = screenshots[currentIndex];
-    previewImg.src = `./assets/screenshots/${data.num}.png`;
-    previewImg.alt = `CastDrive Screenshot ${data.num}: ${data.title}`;
+    list.forEach((item, index) => {
+      const btn = document.createElement('button');
+      btn.className = `thumb-btn ${currentCategory === 'pc' ? 'thumb-pc' : ''} ${index === currentIndex ? 'active' : ''}`;
+      btn.setAttribute('role', 'tab');
+      btn.setAttribute('aria-selected', (index === currentIndex).toString());
+      btn.setAttribute('aria-label', `View ${currentCategory === 'pc' ? 'PC' : 'Android'} screenshot ${index + 1}: ${item.title}`);
+      
+      const img = document.createElement('img');
+      img.src = item.src;
+      img.alt = '';
+      img.loading = 'lazy';
+      btn.appendChild(img);
 
-    if (counterEl) counterEl.textContent = `Screenshot ${currentIndex + 1} of ${screenshots.length}`;
-    if (titleEl) titleEl.textContent = data.title;
-    if (descEl) descEl.textContent = data.desc;
+      btn.addEventListener('click', () => updateGallery(index));
+      btn.addEventListener('keydown', (e) => {
+        const total = list.length;
+        if (e.key === 'ArrowRight') {
+          const next = (index + 1) % total;
+          updateGallery(next);
+          const nextBtn = thumbStrip.children[next];
+          if (nextBtn) nextBtn.focus();
+        } else if (e.key === 'ArrowLeft') {
+          const prev = (index - 1 + total) % total;
+          updateGallery(prev);
+          const prevBtn = thumbStrip.children[prev];
+          if (prevBtn) prevBtn.focus();
+        }
+      });
 
-    thumbBtns.forEach((btn, i) => {
-      const isActive = i === currentIndex;
-      btn.classList.toggle('active', isActive);
-      btn.setAttribute('aria-current', isActive ? 'true' : 'false');
+      thumbStrip.appendChild(btn);
     });
   }
 
-  thumbBtns.forEach((btn, index) => {
-    btn.addEventListener('click', () => updateGallery(index));
-    btn.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') {
-        const next = (index + 1) % thumbBtns.length;
-        thumbBtns[next].focus();
-        updateGallery(next);
-      } else if (e.key === 'ArrowLeft') {
-        const prev = (index - 1 + thumbBtns.length) % thumbBtns.length;
-        thumbBtns[prev].focus();
-        updateGallery(prev);
+  function updateGallery(index) {
+    const list = galleries[currentCategory];
+    if (index < 0) index = list.length - 1;
+    if (index >= list.length) index = 0;
+    currentIndex = index;
+
+    const data = list[currentIndex];
+    previewImg.src = data.src;
+    previewImg.alt = `CastDrive v2.0.0 Screenshot: ${data.title}`;
+
+    if (previewFrame) {
+      if (currentCategory === 'pc') {
+        previewFrame.classList.add('frame-pc');
+      } else {
+        previewFrame.classList.remove('frame-pc');
       }
+    }
+
+    const platformLabel = currentCategory === 'pc' ? 'Windows PC App' : 'Android App';
+    if (counterEl) counterEl.textContent = `${platformLabel} • Screenshot ${currentIndex + 1} of ${list.length}`;
+    if (titleEl) titleEl.textContent = data.title;
+    if (descEl) descEl.textContent = data.desc;
+
+    // Update active thumb
+    Array.from(thumbStrip.children).forEach((btn, i) => {
+      const isActive = i === currentIndex;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-selected', isActive.toString());
+    });
+  }
+
+  categoryTabBtns.forEach(tabBtn => {
+    tabBtn.addEventListener('click', () => {
+      const cat = tabBtn.getAttribute('data-gallery-tab');
+      if (cat === currentCategory) return;
+      currentCategory = cat;
+      currentIndex = 0;
+
+      categoryTabBtns.forEach(b => {
+        const isMatch = b === tabBtn;
+        b.classList.toggle('active', isMatch);
+        b.setAttribute('aria-selected', isMatch.toString());
+      });
+
+      renderThumbnails();
+      updateGallery(0);
     });
   });
 
@@ -201,6 +293,10 @@ function initScreenshotGallery() {
   if (nextBtn) {
     nextBtn.addEventListener('click', () => updateGallery(currentIndex + 1));
   }
+
+  // Initial render
+  renderThumbnails();
+  updateGallery(0);
 }
 
 /**
