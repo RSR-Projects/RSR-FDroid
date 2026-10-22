@@ -1,0 +1,8 @@
+{
+  "name": "RSR-Projects — Open Source Android & Multi-Screen Ecosystem",
+  "description": "Official repository and custom landing page for RSR-Projects Android applications, featuring CastDrive and automated F-Droid repository distribution.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
