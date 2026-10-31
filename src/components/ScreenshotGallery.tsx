@@ -1,10 +1,21 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { androidScreenshots, pcScreenshots, knockDockScreenshots } from '../data/screenshots';
 
-export const ScreenshotGallery: React.FC = () => {
-  const [category, setCategory] = useState<'android' | 'pc' | 'knockdock'>('android');
+interface ScreenshotGalleryProps {
+  appMode?: 'castdrive' | 'knockdock' | 'all';
+}
+
+export const ScreenshotGallery: React.FC<ScreenshotGalleryProps> = ({ appMode = 'castdrive' }) => {
+  const defaultCategory = appMode === 'knockdock' ? 'knockdock' : 'android';
+  const [category, setCategory] = useState<'android' | 'pc' | 'knockdock'>(defaultCategory);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Sync category if appMode changes
+  useEffect(() => {
+    setCategory(appMode === 'knockdock' ? 'knockdock' : 'android');
+    setCurrentIndex(0);
+  }, [appMode]);
 
   const currentList =
     category === 'android'
@@ -56,53 +67,66 @@ export const ScreenshotGallery: React.FC = () => {
       <div className="container">
         <div className="section-header text-center" data-reveal>
           <span className="section-pretitle">Interface &amp; Capabilities</span>
-          <h2 className="section-title">Verified App Screenshots</h2>
+          <h2 className="section-title">
+            {appMode === 'knockdock' ? 'KnockDock Verified Screenshots' : 'Verified App Screenshots'}
+          </h2>
           <p className="section-desc">
-            Direct captures from active CastDrive and KnockDock builds running on Android hardware and Windows PCs.
+            {appMode === 'knockdock'
+              ? 'Direct captures from KnockDock v1.0 running on Android, showcasing the Kyant0 Liquid Glass UI, 60 FPS Sensor Lab, Gesture Trainer, and 30-Action Studio.'
+              : appMode === 'castdrive'
+              ? 'Direct captures from active CastDrive builds running on Android hardware and Windows PCs.'
+              : 'Direct captures from active CastDrive and KnockDock builds running on Android hardware and Windows PCs.'}
           </p>
         </div>
 
-        {/* Gallery Category Switcher (CastDrive Android, CastDrive PC & KnockDock Android) */}
+        {/* Gallery Category Switcher */}
         <div className="gallery-tabs-wrap" role="tablist" aria-label="Screenshot Categories" data-reveal data-reveal-delay="1">
-          <button
-            className={`gallery-tab-btn ${category === 'android' ? 'active' : ''}`}
-            role="tab"
-            aria-selected={category === 'android'}
-            onClick={() => handleCategorySwitch('android')}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-              <line x1="12" y1="18" x2="12.01" y2="18"></line>
-            </svg>
-            <span>CastDrive Android</span>
-            <span className="gallery-tab-badge">8 Captures</span>
-          </button>
-          <button
-            className={`gallery-tab-btn ${category === 'pc' ? 'active' : ''}`}
-            role="tab"
-            aria-selected={category === 'pc'}
-            onClick={() => handleCategorySwitch('pc')}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-              <line x1="8" y1="21" x2="16" y2="21"></line>
-              <line x1="12" y1="17" x2="12" y2="21"></line>
-            </svg>
-            <span>CastDrive Windows PC</span>
-            <span className="gallery-tab-badge">4 Captures</span>
-          </button>
-          <button
-            className={`gallery-tab-btn ${category === 'knockdock' ? 'active' : ''}`}
-            role="tab"
-            aria-selected={category === 'knockdock'}
-            onClick={() => handleCategorySwitch('knockdock')}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-            </svg>
-            <span>KnockDock Android</span>
-            <span className="gallery-tab-badge">7 Captures</span>
-          </button>
+          {(appMode === 'castdrive' || appMode === 'all') && (
+            <>
+              <button
+                className={`gallery-tab-btn ${category === 'android' ? 'active' : ''}`}
+                role="tab"
+                aria-selected={category === 'android'}
+                onClick={() => handleCategorySwitch('android')}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+                <span>Android Mobile App</span>
+                <span className="gallery-tab-badge">8 Captures</span>
+              </button>
+              <button
+                className={`gallery-tab-btn ${category === 'pc' ? 'active' : ''}`}
+                role="tab"
+                aria-selected={category === 'pc'}
+                onClick={() => handleCategorySwitch('pc')}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+                <span>Windows PC App</span>
+                <span className="gallery-tab-badge">4 Captures</span>
+              </button>
+            </>
+          )}
+
+          {(appMode === 'knockdock' || appMode === 'all') && (
+            <button
+              className={`gallery-tab-btn ${category === 'knockdock' ? 'active' : ''}`}
+              role="tab"
+              aria-selected={category === 'knockdock'}
+              onClick={() => handleCategorySwitch('knockdock')}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+              <span>KnockDock Android (Liquid Glass UI)</span>
+              <span className="gallery-tab-badge">7 Captures</span>
+            </button>
+          )}
         </div>
 
         <div className="gallery-container" data-reveal data-reveal-delay="2">
@@ -173,7 +197,7 @@ export const ScreenshotGallery: React.FC = () => {
           </div>
 
           {/* Thumbnails Strip */}
-          <div id="gallery-thumb-strip" className="thumb-strip" role="tablist" aria-label="CastDrive Screenshots">
+          <div id="gallery-thumb-strip" className="thumb-strip" role="tablist" aria-label={`${platformLabel} Screenshots`}>
             {currentList.map((item, index) => {
               const isActive = index === currentIndex;
               return (
@@ -182,7 +206,7 @@ export const ScreenshotGallery: React.FC = () => {
                   className={`thumb-btn ${category === 'pc' ? 'thumb-pc' : ''} ${isActive ? 'active' : ''}`}
                   role="tab"
                   aria-selected={isActive}
-                  aria-label={`View ${category === 'pc' ? 'PC' : 'Android'} screenshot ${index + 1}: ${item.title}`}
+                  aria-label={`View ${platformLabel} screenshot ${index + 1}: ${item.title}`}
                   onClick={() => setCurrentIndex(index)}
                 >
                   <img src={item.src} alt="" loading="lazy" />

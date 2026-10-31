@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 
 interface FDroidSectionProps {
   onCopyText: (text: string, successLabel?: string) => void;
+  appMode?: 'castdrive' | 'knockdock' | 'all';
 }
 
-export const FDroidSection: React.FC<FDroidSectionProps> = ({ onCopyText }) => {
+export const FDroidSection: React.FC<FDroidSectionProps> = ({
+  onCopyText,
+  appMode = 'castdrive'
+}) => {
   const [clientTab, setClientTab] = useState<'fdroid' | 'neostore' | 'droidify' | 'aurora'>('fdroid');
   const [copiedUrl, setCopiedUrl] = useState(false);
   const [copiedQrUrl, setCopiedQrUrl] = useState(false);
@@ -23,14 +27,23 @@ export const FDroidSection: React.FC<FDroidSectionProps> = ({ onCopyText }) => {
     setTimeout(() => setCopiedQrUrl(false), 2200);
   };
 
+  const appTargetLabel =
+    appMode === 'knockdock'
+      ? 'KnockDock'
+      : appMode === 'castdrive'
+      ? 'CastDrive'
+      : 'CastDrive & KnockDock';
+
   return (
     <section id="fdroid-repo" className="fdroid-section">
       <div className="container">
         <div className="section-header" data-reveal>
           <span className="section-pretitle">Distribution &amp; Updates</span>
-          <h2 className="section-title">Install Through F-Droid</h2>
+          <h2 className="section-title">
+            {appMode === 'knockdock' ? 'Install KnockDock Through F-Droid' : 'Install Through F-Droid'}
+          </h2>
           <p className="section-desc">
-            RSR-Projects operates an independent F-Droid repository. Adding this repository to your client provides automated updates, cryptographic index verification, and seamless installation.
+            RSR-Projects operates an independent F-Droid repository. Adding this repository to your client provides automated updates, cryptographic index verification, and seamless installation for {appTargetLabel}.
           </p>
         </div>
 
@@ -147,8 +160,8 @@ export const FDroidSection: React.FC<FDroidSectionProps> = ({ onCopyText }) => {
                   <li className="install-step-item">
                     <span className="step-num">4</span>
                     <div className="step-content">
-                      <h5>Sync and Install CastDrive &amp; KnockDock</h5>
-                      <p>Refresh your repository index. Search for <strong>CastDrive</strong> or <strong>KnockDock</strong> to install and receive future updates automatically.</p>
+                      <h5>Sync and Install {appTargetLabel}</h5>
+                      <p>Refresh your repository index. Search for <strong>{appTargetLabel}</strong> to install and receive future updates automatically.</p>
                     </div>
                   </li>
                 </ol>
@@ -177,7 +190,7 @@ export const FDroidSection: React.FC<FDroidSectionProps> = ({ onCopyText }) => {
                     <span className="step-num">3</span>
                     <div className="step-content">
                       <h5>Save &amp; Sync</h5>
-                      <p>Save the new source. Neo Store will automatically verify the signed metadata index and fetch CastDrive and KnockDock.</p>
+                      <p>Save the new source. Neo Store will automatically verify the signed metadata index and fetch {appTargetLabel}.</p>
                     </div>
                   </li>
                 </ol>
@@ -206,7 +219,7 @@ export const FDroidSection: React.FC<FDroidSectionProps> = ({ onCopyText }) => {
                     <span className="step-num">3</span>
                     <div className="step-content">
                       <h5>Synchronize &amp; Install</h5>
-                      <p>Pull down to refresh repository packages, then install CastDrive and KnockDock with fast background updates.</p>
+                      <p>Pull down to refresh repository packages, then install {appTargetLabel} with fast background updates.</p>
                     </div>
                   </li>
                 </ol>
@@ -242,110 +255,143 @@ export const FDroidSection: React.FC<FDroidSectionProps> = ({ onCopyText }) => {
               </div>
             )}
 
-            {/* Direct Download Cards for CastDrive Android, CastDrive Windows PC & KnockDock Android */}
+            {/* Direct Download Cards */}
             <div id="downloads" className="platform-download-grid">
-              {/* CastDrive Android Download Card */}
-              <div className="platform-card">
-                <div className="platform-card-header">
-                  <div className="platform-icon" aria-hidden="true">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                      <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                    </svg>
+              {(appMode === 'castdrive' || appMode === 'all') && (
+                <>
+                  {/* CastDrive Android Download Card */}
+                  <div className="platform-card">
+                    <div className="platform-card-header">
+                      <div className="platform-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                          <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                      </div>
+                      <div className="platform-meta">
+                        <h5>CastDrive for Android</h5>
+                        <p>v2.0.0 &bull; versionCode 3</p>
+                      </div>
+                    </div>
+                    <div className="platform-details">
+                      Direct APK package for smartphones, tablets, and automotive head units without requiring F-Droid.
+                    </div>
+                    <div className="platform-actions">
+                      <a href="./fdroid/repo/CastDrive.apk" className="btn btn-secondary btn-sm" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                          <polyline points="7 10 12 15 17 10"></polyline>
+                          <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <span>Download APK</span>
+                      </a>
+                      <a href="https://github.com/RSR-Projects/CastDrive/releases/tag/v2.0.0" target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-sm">
+                        <span>Release Notes</span>
+                      </a>
+                    </div>
                   </div>
-                  <div className="platform-meta">
-                    <h5>CastDrive for Android</h5>
-                    <p>v2.0.0 &bull; versionCode 3</p>
-                  </div>
-                </div>
-                <div className="platform-details">
-                  Direct APK package for smartphones, tablets, and automotive head units without requiring F-Droid.
-                </div>
-                <div className="platform-actions">
-                  <a href="./fdroid/repo/CastDrive.apk" className="btn btn-secondary btn-sm" download>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                      <polyline points="7 10 12 15 17 10"></polyline>
-                      <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                    <span>Download APK</span>
-                  </a>
-                  <a href="https://github.com/RSR-Projects/CastDrive/releases/tag/v2.0.0" target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-sm">
-                    <span>Release Notes</span>
-                  </a>
-                </div>
-              </div>
 
-              {/* CastDrive Windows PC Download Card */}
-              <div className="platform-card">
-                <div className="platform-card-header">
-                  <div className="platform-icon" aria-hidden="true">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                      <line x1="8" y1="21" x2="16" y2="21"></line>
-                      <line x1="12" y1="17" x2="12" y2="21"></line>
-                    </svg>
+                  {/* CastDrive Windows PC Download Card */}
+                  <div className="platform-card">
+                    <div className="platform-card-header">
+                      <div className="platform-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                          <line x1="8" y1="21" x2="16" y2="21"></line>
+                          <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                      </div>
+                      <div className="platform-meta">
+                        <h5>CastDrive for Windows PC</h5>
+                        <p>v2.0.0 &bull; CastDrivePC.exe</p>
+                      </div>
+                    </div>
+                    <div className="platform-details">
+                      Dual-mode desktop client for Windows 10/11: receive phone mirrors or use phone as an extended PC second display (Spacedesk style).
+                    </div>
+                    <div className="platform-actions">
+                      <a href="https://github.com/RSR-Projects/CastDrive/releases/download/v2.0.0/CastDrivePC.exe" className="btn btn-secondary btn-sm">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                          <polyline points="7 10 12 15 17 10"></polyline>
+                          <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <span>Download PC Client</span>
+                      </a>
+                      <a href="https://github.com/RSR-Projects/CastDrive/releases/tag/v2.0.0" target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-sm">
+                        <span>Release Notes</span>
+                      </a>
+                    </div>
                   </div>
-                  <div className="platform-meta">
-                    <h5>CastDrive for Windows PC</h5>
-                    <p>v2.0.0 &bull; CastDrivePC.exe</p>
-                  </div>
-                </div>
-                <div className="platform-details">
-                  Dual-mode desktop client for Windows 10/11: receive phone mirrors or use phone as an extended PC second display (Spacedesk style).
-                </div>
-                <div className="platform-actions">
-                  <a href="https://github.com/RSR-Projects/CastDrive/releases/download/v2.0.0/CastDrivePC.exe" className="btn btn-secondary btn-sm">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                      <polyline points="7 10 12 15 17 10"></polyline>
-                      <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                    <span>Download PC Client</span>
-                  </a>
-                  <a href="https://github.com/RSR-Projects/CastDrive/releases/tag/v2.0.0" target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-sm">
-                    <span>Release Notes</span>
-                  </a>
-                </div>
-              </div>
+                </>
+              )}
 
-              {/* KnockDock Android Download Card */}
-              <div className="platform-card">
-                <div className="platform-card-header">
-                  <div className="platform-icon" aria-hidden="true" style={{ padding: 0, overflow: 'hidden', background: 'rgba(16, 185, 129, 0.12)', borderColor: 'rgba(16, 185, 129, 0.3)' }}>
-                    <img
-                      src="./assets/knockdock-icon.png"
-                      alt="KnockDock App Icon"
-                      width="36"
-                      height="36"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }}
-                    />
+              {(appMode === 'knockdock' || appMode === 'all') && (
+                <>
+                  {/* KnockDock Android Download Card */}
+                  <div className="platform-card">
+                    <div className="platform-card-header">
+                      <div className="platform-icon" aria-hidden="true" style={{ padding: 0, overflow: 'hidden', background: 'rgba(16, 185, 129, 0.12)', borderColor: 'rgba(16, 185, 129, 0.3)' }}>
+                        <img
+                          src="./assets/knockdock-icon.png"
+                          alt="KnockDock App Icon"
+                          width="36"
+                          height="36"
+                          style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }}
+                        />
+                      </div>
+                      <div className="platform-meta">
+                        <h5>KnockDock for Android</h5>
+                        <p>v1.0 &bull; versionCode 1 &bull; Apache-2.0</p>
+                      </div>
+                    </div>
+                    <div className="platform-details">
+                      Signed Android APK (<code>com.rsrprojects.knockdock</code>, Android 7.0+) for acoustic &amp; vibration desk knock macros, 60 FPS Sensor Lab, and 30 built-in actions.
+                    </div>
+                    <div className="platform-actions">
+                      <a href="./fdroid/repo/KnockDock.apk" className="btn btn-secondary btn-sm" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                          <polyline points="7 10 12 15 17 10"></polyline>
+                          <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        <span>Download KnockDock.apk</span>
+                      </a>
+                      <a href="https://github.com/RSR-Projects/KnockDock/releases" target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-sm">
+                        <span>Release Notes</span>
+                      </a>
+                    </div>
                   </div>
-                  <div className="platform-meta">
-                    <h5>KnockDock for Android</h5>
-                    <p>v1.0 &bull; versionCode 1 &bull; Apache-2.0</p>
-                  </div>
-                </div>
-                <div className="platform-details">
-                  Signed Android APK (<code>com.rsrprojects.knockdock</code>, Android 7.0+) for acoustic &amp; vibration desk knock macros. Also available directly via the RSR-Projects F-Droid repository.
-                </div>
-                <div className="platform-actions">
-                  <a href="./fdroid/repo/KnockDock.apk" className="btn btn-secondary btn-sm" download>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                      <polyline points="7 10 12 15 17 10"></polyline>
-                      <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                    <span>Download APK</span>
-                  </a>
-                  <a href="https://github.com/RSR-Projects/KnockDock/releases" target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-sm">
-                    <span>Release Notes</span>
-                  </a>
-                  <a href="https://github.com/RSR-Projects/KnockDock" target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-sm">
-                    <span>Source Code</span>
-                  </a>
-                </div>
-              </div>
+
+                  {appMode === 'knockdock' && (
+                    <div className="platform-card">
+                      <div className="platform-card-header">
+                        <div className="platform-icon" aria-hidden="true">
+                          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                          </svg>
+                        </div>
+                        <div className="platform-meta">
+                          <h5>KnockDock Source &amp; Build</h5>
+                          <p>Kotlin 2.0 &bull; Jetpack Compose &bull; Apache-2.0</p>
+                        </div>
+                      </div>
+                      <div className="platform-details">
+                        Full open-source repository on GitHub including the 200 Hz IMU signal processor, 3-trial gesture trainer, and Kyant0 Liquid Glass UI architecture.
+                      </div>
+                      <div className="platform-actions">
+                        <a href="https://github.com/RSR-Projects/KnockDock" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">
+                          <span>GitHub Repository</span>
+                        </a>
+                        <a href="https://github.com/RSR-Projects/KnockDock/issues" target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-sm">
+                          <span>Issue Tracker</span>
+                        </a>
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
             </div>
           </div>
 

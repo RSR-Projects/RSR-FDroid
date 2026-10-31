@@ -3,9 +3,15 @@ import { ecosystemProjects } from '../data/castdrive';
 
 interface EcosystemSectionProps {
   onNavigateToCreator: () => void;
+  onNavigateToKnockDock?: () => void;
+  onNavigateToCastDrive?: () => void;
 }
 
-export const EcosystemSection: React.FC<EcosystemSectionProps> = ({ onNavigateToCreator }) => {
+export const EcosystemSection: React.FC<EcosystemSectionProps> = ({
+  onNavigateToCreator,
+  onNavigateToKnockDock,
+  onNavigateToCastDrive
+}) => {
   return (
     <section id="ecosystem">
       <div className="container">
@@ -35,6 +41,12 @@ export const EcosystemSection: React.FC<EcosystemSectionProps> = ({ onNavigateTo
                           color: '#a855f7',
                           background: 'rgba(168, 85, 247, 0.1)',
                           borderColor: 'rgba(168, 85, 247, 0.25)'
+                        }
+                      : proj.title === 'KnockDock'
+                      ? {
+                          color: '#34d399',
+                          background: 'rgba(16, 185, 129, 0.1)',
+                          borderColor: 'rgba(16, 185, 129, 0.25)'
                         }
                       : undefined
                   }
@@ -80,24 +92,50 @@ export const EcosystemSection: React.FC<EcosystemSectionProps> = ({ onNavigateTo
               <p>{proj.description}</p>
               <div className="project-card-footer">
                 <span className="project-status">{proj.status}</span>
-                {proj.isExternal ? (
-                  <a href={proj.linkUrl} target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-sm">
-                    <span>{proj.linkText}</span>
-                  </a>
-                ) : proj.accent ? (
-                  <a
-                    href="./creator.html"
-                    className="btn btn-secondary btn-sm"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      onNavigateToCreator();
-                    }}
-                  >
-                    <span>{proj.linkText}</span>
-                  </a>
-                ) : (
-                  <span className="badge badge-license">{proj.linkText}</span>
-                )}
+                <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                  {proj.title === 'KnockDock' && onNavigateToKnockDock && (
+                    <a
+                      href="./knockdock.html"
+                      className="btn btn-secondary btn-sm"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onNavigateToKnockDock();
+                      }}
+                    >
+                      <span>Open KnockDock Page &rarr;</span>
+                    </a>
+                  )}
+                  {proj.title === 'CastDrive' && onNavigateToCastDrive && (
+                    <a
+                      href="./index.html"
+                      className="btn btn-secondary btn-sm"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onNavigateToCastDrive();
+                      }}
+                    >
+                      <span>Open CastDrive Page &rarr;</span>
+                    </a>
+                  )}
+                  {proj.isExternal ? (
+                    <a href={proj.linkUrl} target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-sm">
+                      <span>{proj.linkText}</span>
+                    </a>
+                  ) : proj.accent ? (
+                    <a
+                      href="./creator.html"
+                      className="btn btn-secondary btn-sm"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onNavigateToCreator();
+                      }}
+                    >
+                      <span>{proj.linkText}</span>
+                    </a>
+                  ) : (
+                    <span className="badge badge-license">{proj.linkText}</span>
+                  )}
+                </div>
               </div>
             </div>
           ))}

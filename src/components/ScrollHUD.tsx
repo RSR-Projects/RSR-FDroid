@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { PageType } from './Header';
 
 interface ScrollHUDProps {
-  currentPage: 'home' | 'creator' | 'standalone';
+  currentPage: PageType;
 }
 
 export const ScrollHUD: React.FC<ScrollHUDProps> = ({ currentPage }) => {
@@ -17,11 +18,13 @@ export const ScrollHUD: React.FC<ScrollHUDProps> = ({ currentPage }) => {
       setScrollProgress(Math.min(100, Math.max(0, Math.round(progress))));
       setShowHud(window.scrollY > 220);
 
-      // Detect active section on home/creator page
+      // Detect active section on home/knockdock/creator page
       const sectionIds =
         currentPage === 'creator'
           ? ['creator-profile', 'youtube-spotlight', 'music-player', 'bts-gallery', 'daw-setup']
-          : ['hero', 'ecosystem-deck', 'castdrive', 'knockdock', 'screenshots', 'fdroid-repo', 'changelog', 'ecosystem'];
+          : currentPage === 'knockdock'
+          ? ['hero', 'ecosystem-deck', 'knockdock', 'screenshots', 'fdroid-repo', 'changelog', 'ecosystem']
+          : ['hero', 'ecosystem-deck', 'castdrive', 'screenshots', 'fdroid-repo', 'changelog', 'ecosystem'];
 
       let current = '';
       for (const id of sectionIds) {

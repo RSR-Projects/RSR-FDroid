@@ -1,8 +1,9 @@
 import React from 'react';
+import { PageType } from './Header';
 
 interface FooterProps {
-  currentPage: 'home' | 'creator' | 'standalone';
-  onNavigate: (page: 'home' | 'creator' | 'standalone', hash?: string) => void;
+  currentPage: PageType;
+  onNavigate: (page: PageType, hash?: string) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ currentPage, onNavigate }) => {
@@ -38,13 +39,13 @@ export const Footer: React.FC<FooterProps> = ({ currentPage, onNavigate }) => {
           <div className="footer-col">
             <h5>CastDrive &amp; KnockDock</h5>
             <ul className="footer-links">
+              <li><a href="./index.html" onClick={(e) => { e.preventDefault(); onNavigate('home'); }}>CastDrive Webpage</a></li>
+              <li><a href="./knockdock.html" onClick={(e) => { e.preventDefault(); onNavigate('knockdock'); }}>KnockDock Webpage</a></li>
               <li><a href="https://github.com/RSR-Projects/CastDrive" target="_blank" rel="noopener noreferrer">CastDrive Source Code</a></li>
-              <li><a href="https://github.com/RSR-Projects/CastDrive/releases/tag/v2.0.0" target="_blank" rel="noopener noreferrer">CastDrive Releases (v2.0.0)</a></li>
-              <li><a href="./fdroid/repo/CastDrive.apk" download>CastDrive.apk (Android)</a></li>
+              <li><a href="./fdroid/repo/CastDrive.apk" download>CastDrive.apk (v2.0.0)</a></li>
               <li><a href="https://github.com/RSR-Projects/CastDrive/releases/download/v2.0.0/CastDrivePC.exe">CastDrivePC.exe (Windows)</a></li>
               <li><a href="https://github.com/RSR-Projects/KnockDock" target="_blank" rel="noopener noreferrer">KnockDock Source Code</a></li>
-              <li><a href="https://github.com/RSR-Projects/KnockDock/releases" target="_blank" rel="noopener noreferrer">KnockDock Releases (v1.0)</a></li>
-              <li><a href="./fdroid/repo/KnockDock.apk" download>KnockDock.apk (Android)</a></li>
+              <li><a href="./fdroid/repo/KnockDock.apk" download>KnockDock.apk (v1.0)</a></li>
             </ul>
           </div>
 
@@ -85,7 +86,7 @@ export const Footer: React.FC<FooterProps> = ({ currentPage, onNavigate }) => {
 
         <div className="footer-bottom">
           <div>
-            &copy; RSR-Projects &bull; RSR Spectrum. Released under the MIT License.
+            &copy; RSR-Projects &bull; RSR Spectrum. Released under the MIT &amp; Apache-2.0 Licenses.
           </div>
           <button className="back-to-top" aria-label="Scroll back to top" onClick={scrollToTop}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

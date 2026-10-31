@@ -37,11 +37,13 @@ interface DeckCardItem {
 interface StackedDeckSectionProps {
   onNavigateToSection: (hash: string) => void;
   onNavigateToCreator?: () => void;
+  onNavigateToKnockDock?: () => void;
 }
 
 export const StackedDeckSection: React.FC<StackedDeckSectionProps> = ({
   onNavigateToSection,
-  onNavigateToCreator
+  onNavigateToCreator,
+  onNavigateToKnockDock
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -71,29 +73,6 @@ export const StackedDeckSection: React.FC<StackedDeckSectionProps> = ({
       gradient: 'linear-gradient(180deg, #102438 0%, #0a1422 100%)',
       borderGlow: 'rgba(6, 182, 212, 0.7)',
       image: './assets/screenshots/1.png'
-    },
-    {
-      id: 'knockdock-android',
-      tag: 'ACOUSTIC DESK MACRO CONTROLLER',
-      title: 'KnockDock for Android',
-      subtitle: 'Turn Your Desk Into a Smart Knock Macro Pad',
-      badge: 'v1.0 (versionCode 1) • Apache-2.0',
-      description:
-        'Transform any physical desk or table into an intelligent, touch-free acoustic and vibration macro pad. Place your Android phone on your desk and knock 1, 2, 3, or 4+ times to control media, launch apps, toggle flashlight, or trigger system actions.',
-      highlights: [
-        'Dual-Mode Engine: Desk Surface Detection & Direct Phone Tap Detection',
-        '10-stage signal processing pipeline with zero-cloud local processing',
-        'Custom Multi-Knock Mapping (1x, 2x, 3x, 4+ knocks) with Guided Calibration'
-      ],
-      ctaLabel: 'Download APK Package',
-      ctaHref: './fdroid/repo/KnockDock.apk',
-      ctaDownload: true,
-      secondaryCtaLabel: 'View Architecture',
-      secondaryCtaHref: '#knockdock',
-      icon: <Activity className="w-6 h-6 text-emerald-400" />,
-      gradient: 'linear-gradient(180deg, #0d2824 0%, #091718 100%)',
-      borderGlow: 'rgba(16, 185, 129, 0.7)',
-      image: './assets/knockdock-screenshots/1.png'
     },
     {
       id: 'castdrive-pc',

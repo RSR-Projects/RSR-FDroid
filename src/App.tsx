@@ -1,19 +1,23 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Header } from './components/Header';
+import { Header, PageType } from './components/Header';
 import { Footer } from './components/Footer';
 import { Toast } from './components/Toast';
 import { AmbientBackground } from './components/AmbientBackground';
 import { ScrollHUD } from './components/ScrollHUD';
 import { HomePage } from './pages/HomePage';
+import { KnockDockPage } from './pages/KnockDockPage';
 import { CreatorPage } from './pages/CreatorPage';
 import { StandalonePage } from './pages/StandalonePage';
 
 export const App: React.FC = () => {
-  const getInitialPage = (): 'home' | 'creator' | 'standalone' => {
+  const getInitialPage = (): PageType => {
     const path = window.location.pathname.toLowerCase();
     const hash = window.location.hash.toLowerCase();
     if (path.includes('standalone') || hash.includes('/standalone') || hash.includes('standalone')) {
       return 'standalone';
+    }
+    if (path.includes('knockdock') || hash.includes('/knockdock')) {
+      return 'knockdock';
     }
     if (path.includes('creator') || hash.includes('/creator') || hash.includes('creator')) {
       return 'creator';
@@ -21,7 +25,7 @@ export const App: React.FC = () => {
     return 'home';
   };
 
-  const [currentPage, setCurrentPage] = useState<'home' | 'creator' | 'standalone'>(getInitialPage);
+  const [currentPage, setCurrentPage] = useState<PageType>(getInitialPage);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [a11yStatus, setA11yStatus] = useState<string>('');
 
@@ -55,11 +59,12 @@ export const App: React.FC = () => {
     }
   }, [showToast]);
 
-  const navigateTo = useCallback((page: 'home' | 'creator' | 'standalone', hash?: string) => {
+  const navigateTo = useCallback((page: PageType, hash?: string) => {
     setCurrentPage(page);
 
     // Update URL without breaking static GitHub Pages routing
     let targetUrl = './';
+    if (page === 'knockdock') targetUrl = './knockdock.html';
     if (page === 'creator') targetUrl = './creator.html';
     if (page === 'standalone') targetUrl = './standalone.html';
 
@@ -100,16 +105,24 @@ export const App: React.FC = () => {
           'Discover original music releases, YouTube channel @RSR_Spectrum, studio sessions, and creative technology by the developer of RSR-Projects and CastDrive.'
         );
       }
+    } else if (currentPage === 'knockdock') {
+      document.title = 'KnockDock • Next-Gen Acoustic Desk Macro Controller • RSR-Projects';
+      if (metaDesc) {
+        metaDesc.setAttribute(
+          'content',
+          'Turn your physical desk into an intelligent acoustic and structural vibration macro pad with KnockDock for Android. Features a 200 Hz 6-axis IMU DSP pipeline, 60 FPS live oscilloscope, 30 built-in actions, PC Wi-Fi bridge, and Kyant0 Liquid Glass UI.'
+        );
+      }
     } else if (currentPage === 'standalone') {
       document.title = 'RSR-Projects — Unified Multi-Screen & Creator Suite';
       if (metaDesc) {
         metaDesc.setAttribute(
           'content',
-          'Unified edition of RSR-Projects, CastDrive screen mirroring ecosystem, and RSR Spectrum creative music studio.'
+          'Unified edition of RSR-Projects, CastDrive screen mirroring ecosystem, KnockDock acoustic desk macro controller, and RSR Spectrum creative music studio.'
         );
       }
     } else {
-      document.title = 'RSR-Projects — Open Source Android & Multi-Screen Ecosystem';
+      document.title = 'RSR-Projects — CastDrive & Open Source Android Ecosystem';
       if (metaDesc) {
         metaDesc.setAttribute(
           'content',
@@ -148,6 +161,16 @@ export const App: React.FC = () => {
         <HomePage
           onCopyText={handleCopyText}
           onNavigateToCreator={() => navigateTo('creator')}
+          onNavigateToKnockDock={() => navigateTo('knockdock')}
+          onNavigateToSection={handleSectionJump}
+        />
+      )}
+
+      {currentPage === 'knockdock' && (
+        <KnockDockPage
+          onCopyText={handleCopyText}
+          onNavigateToCreator={() => navigateTo('creator')}
+          onNavigateToCastDrive={() => navigateTo('home')}
           onNavigateToSection={handleSectionJump}
         />
       )}

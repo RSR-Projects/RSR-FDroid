@@ -2,25 +2,40 @@ import React from 'react';
 import { changelogData } from '../data/castdrive';
 import { knockDockChangelogData } from '../data/knockdock';
 
-export const ChangelogSection: React.FC = () => {
-  const combinedReleases = [
-    ...knockDockChangelogData.map(r => ({ ...r, appName: 'KnockDock' })),
-    ...changelogData.map(r => ({ ...r, appName: 'CastDrive' }))
-  ];
+interface ChangelogSectionProps {
+  appMode?: 'castdrive' | 'knockdock' | 'all';
+}
+
+export const ChangelogSection: React.FC<ChangelogSectionProps> = ({ appMode = 'castdrive' }) => {
+  const releases =
+    appMode === 'knockdock'
+      ? knockDockChangelogData.map(r => ({ ...r, appName: 'KnockDock' }))
+      : appMode === 'castdrive'
+      ? changelogData.map(r => ({ ...r, appName: 'CastDrive' }))
+      : [
+          ...knockDockChangelogData.map(r => ({ ...r, appName: 'KnockDock' })),
+          ...changelogData.map(r => ({ ...r, appName: 'CastDrive' }))
+        ];
 
   return (
     <section id="changelog" className="changelog-section">
       <div className="container">
         <div className="section-header" data-reveal>
           <span className="section-pretitle">Version History</span>
-          <h2 className="section-title">Release Notes &amp; Changelog</h2>
+          <h2 className="section-title">
+            {appMode === 'knockdock' ? 'KnockDock Release Notes & Changelog' : 'Release Notes & Changelog'}
+          </h2>
           <p className="section-desc">
-            Documented release history and verified updates for CastDrive, KnockDock, and repository components.
+            {appMode === 'knockdock'
+              ? 'Documented release history and verified updates for KnockDock (com.rsrprojects.knockdock).'
+              : appMode === 'castdrive'
+              ? 'Documented release history and verified updates for CastDrive and repository components.'
+              : 'Documented release history and verified updates for CastDrive, KnockDock, and repository components.'}
           </p>
         </div>
 
         <div className="changelog-cards">
-          {combinedReleases.map((release, idx) => (
+          {releases.map((release, idx) => (
             <div
               key={`${release.appName}-${release.version}-${idx}`}
               className={`changelog-card ${release.isLatest ? 'latest' : ''}`}

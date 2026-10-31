@@ -17,6 +17,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html'),
+        knockdock: path.resolve(__dirname, 'knockdock.html'),
         creator: path.resolve(__dirname, 'creator.html'),
         standalone: path.resolve(__dirname, 'standalone.html')
       }
