@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Hero } from '../components/Hero';
 import { StackedDeckSection } from '../components/StackedDeckSection';
 import { CastDriveShowcase } from '../components/CastDriveShowcase';
+import { KnockDockShowcase } from '../components/KnockDockShowcase';
 import { ScreenshotGallery } from '../components/ScreenshotGallery';
 import { FDroidSection } from '../components/FDroidSection';
 import { ChangelogSection } from '../components/ChangelogSection';
@@ -33,7 +34,7 @@ export const StandalonePage: React.FC<StandalonePageProps> = ({
             <span className="standalone-badge-dot"></span>
             Unified Suite
           </span>
-          <span>CastDrive Mobile &bull; Windows PC Client &bull; RSR Spectrum Music</span>
+          <span>CastDrive &bull; KnockDock &bull; Windows PC Client &bull; RSR Spectrum Music</span>
         </div>
         <div style={{ display: 'flex', gap: '8px' }}>
           <button
@@ -46,7 +47,7 @@ export const StandalonePage: React.FC<StandalonePageProps> = ({
             className={`btn btn-sm ${activeTab === 'castdrive' ? 'btn-primary' : 'btn-ghost'}`}
             onClick={() => setActiveTab('castdrive')}
           >
-            CastDrive &amp; Repo
+            Apps &amp; Repo
           </button>
           <button
             className={`btn btn-sm ${activeTab === 'creator' ? 'btn-primary' : 'btn-ghost'}`}
@@ -65,6 +66,7 @@ export const StandalonePage: React.FC<StandalonePageProps> = ({
             onNavigateToCreator={() => setActiveTab('creator')}
           />
           <CastDriveShowcase />
+          <KnockDockShowcase />
           <ScreenshotGallery />
           <FDroidSection onCopyText={onCopyText} />
           <ChangelogSection />

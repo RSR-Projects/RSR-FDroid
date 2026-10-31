@@ -118,28 +118,28 @@ export const ecosystemProjects: EcosystemProject[] = [
     title: 'CastDrive',
     badge: 'v2.0.0 • Active',
     description: 'Android and Windows screen mirroring and extended secondary display ecosystem (Spacedesk style) with reverse touch, multi-performance modes, and synchronized audio.',
-    status: 'Primary App',
+    status: 'Primary App • MIT',
     linkText: 'View Repository →',
     linkUrl: 'https://github.com/RSR-Projects/CastDrive',
     isExternal: true
   },
   {
+    title: 'KnockDock',
+    badge: 'v1.0 • Active',
+    description: 'Acoustic desk macro controller transforming physical desk knocks and vibrations into configurable gestures, 30 built-in actions, conditional macros, and PC bridge workflows in a Kyant0 Liquid Glass UI.',
+    status: 'Primary App • Apache-2.0',
+    linkText: 'View Repository →',
+    linkUrl: 'https://github.com/RSR-Projects/KnockDock',
+    isExternal: true
+  },
+  {
     title: 'RSR-FDroid',
     badge: 'Production • Active',
-    description: 'Automated F-Droid third-party repository and GitHub Pages publishing workflow, featuring cryptographic index signing and APK distribution.',
+    description: 'Automated F-Droid third-party repository and GitHub Pages publishing workflow, featuring cryptographic index signing and APK distribution for CastDrive and KnockDock.',
     status: 'Infrastructure',
     linkText: 'View Repository →',
     linkUrl: 'https://github.com/RSR-Projects/RSR-FDroid',
     isExternal: true
-  },
-  {
-    title: 'Ecosystem Companion Tools',
-    badge: 'In Planning',
-    description: 'Future companion utilities, wireless bridge helpers, and audio forwarding extensions designed to integrate with the RSR multi-screen ecosystem.',
-    status: 'Planned Feature',
-    linkText: 'Roadmap',
-    linkUrl: '#',
-    isExternal: false
   },
   {
     title: 'Creator & Music',

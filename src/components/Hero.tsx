@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigateToSection }) => {
         <div className="hero-intro-col">
           <div className="hero-pill-badge" data-reveal>
             <span className="hero-pill-dot"></span>
-            <span className="hero-pill-text">CastDrive v2.0.0 Released &bull; Dual Android &amp; PC Engine</span>
+            <span className="hero-pill-text">CastDrive v2.0.0 &amp; KnockDock v1.0 &bull; RSR-Projects Suite</span>
           </div>
 
           <h1 className="hero-headline" data-reveal data-reveal-delay="1">
@@ -39,7 +39,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigateToSection }) => {
           </h1>
 
           <p className="hero-description" data-reveal data-reveal-delay="2">
-            Practical, privacy-first software bridging Android devices, automotive head units, and Windows PCs. Turn any mobile device into an extended PC secondary monitor (Spacedesk style), mirror screens with reverse touch control, and distribute verified builds through an automated F-Droid repository.
+            Practical, privacy-first software bridging Android devices, automotive head units, and Windows PCs. Turn any mobile device into an extended PC secondary monitor with <strong>CastDrive</strong>, trigger instant desk-surface knock macros with <strong>KnockDock</strong>, and install verified builds through our automated F-Droid repository.
           </p>
 
           <div className="hero-actions-row" data-reveal data-reveal-delay="3">

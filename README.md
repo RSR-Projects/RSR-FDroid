@@ -5,6 +5,7 @@ Welcome to the official F-Droid repository for RSR-Projects Android applications
 ## Applications
 
 * CastDrive
+* KnockDock
 
 ## Repository status
 

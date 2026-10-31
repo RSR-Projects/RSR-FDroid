@@ -2,6 +2,7 @@ import React from 'react';
 import { Hero } from '../components/Hero';
 import { StackedDeckSection } from '../components/StackedDeckSection';
 import { CastDriveShowcase } from '../components/CastDriveShowcase';
+import { KnockDockShowcase } from '../components/KnockDockShowcase';
 import { ScreenshotGallery } from '../components/ScreenshotGallery';
 import { FDroidSection } from '../components/FDroidSection';
 import { ChangelogSection } from '../components/ChangelogSection';
@@ -30,6 +31,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         onNavigateToCreator={onNavigateToCreator} 
       />
       <CastDriveShowcase />
+      <KnockDockShowcase />
       <ScreenshotGallery />
       <FDroidSection onCopyText={onCopyText} />
       <ChangelogSection />

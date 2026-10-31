@@ -21,7 +21,7 @@ export const ScrollHUD: React.FC<ScrollHUDProps> = ({ currentPage }) => {
       const sectionIds =
         currentPage === 'creator'
           ? ['creator-profile', 'youtube-spotlight', 'music-player', 'bts-gallery', 'daw-setup']
-          : ['hero', 'ecosystem-deck', 'castdrive', 'screenshots', 'fdroid-repo', 'changelog', 'ecosystem'];
+          : ['hero', 'ecosystem-deck', 'castdrive', 'knockdock', 'screenshots', 'fdroid-repo', 'changelog', 'ecosystem'];
 
       let current = '';
       for (const id of sectionIds) {
@@ -50,6 +50,8 @@ export const ScrollHUD: React.FC<ScrollHUDProps> = ({ currentPage }) => {
         return 'Software Stack';
       case 'castdrive':
         return 'CastDrive Engine';
+      case 'knockdock':
+        return 'KnockDock Engine';
       case 'screenshots':
         return 'Interface Gallery';
       case 'fdroid-repo':

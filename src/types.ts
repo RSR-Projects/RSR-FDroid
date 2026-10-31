@@ -37,7 +37,21 @@ export interface FeatureItem {
   title: string;
   description: string;
   tags: string[];
-  iconType: 'receiver' | 'desktop' | 'modes' | 'touch' | 'audio' | 'browser' | 'display' | 'usb';
+  iconType:
+    | 'receiver'
+    | 'desktop'
+    | 'modes'
+    | 'touch'
+    | 'audio'
+    | 'browser'
+    | 'display'
+    | 'usb'
+    | 'sensor'
+    | 'oscilloscope'
+    | 'trainer'
+    | 'studio'
+    | 'profiles'
+    | 'glass';
 }
 
 export interface ChangelogRelease {

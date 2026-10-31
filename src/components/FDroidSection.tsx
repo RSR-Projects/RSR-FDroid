@@ -147,8 +147,8 @@ export const FDroidSection: React.FC<FDroidSectionProps> = ({ onCopyText }) => {
                   <li className="install-step-item">
                     <span className="step-num">4</span>
                     <div className="step-content">
-                      <h5>Sync and Install CastDrive</h5>
-                      <p>Refresh your repository index. Search for <strong>CastDrive</strong> to install and receive future updates automatically.</p>
+                      <h5>Sync and Install CastDrive &amp; KnockDock</h5>
+                      <p>Refresh your repository index. Search for <strong>CastDrive</strong> or <strong>KnockDock</strong> to install and receive future updates automatically.</p>
                     </div>
                   </li>
                 </ol>
@@ -177,7 +177,7 @@ export const FDroidSection: React.FC<FDroidSectionProps> = ({ onCopyText }) => {
                     <span className="step-num">3</span>
                     <div className="step-content">
                       <h5>Save &amp; Sync</h5>
-                      <p>Save the new source. Neo Store will automatically verify the signed metadata index and fetch CastDrive.</p>
+                      <p>Save the new source. Neo Store will automatically verify the signed metadata index and fetch CastDrive and KnockDock.</p>
                     </div>
                   </li>
                 </ol>
@@ -206,7 +206,7 @@ export const FDroidSection: React.FC<FDroidSectionProps> = ({ onCopyText }) => {
                     <span className="step-num">3</span>
                     <div className="step-content">
                       <h5>Synchronize &amp; Install</h5>
-                      <p>Pull down to refresh repository packages, then install CastDrive with fast background updates.</p>
+                      <p>Pull down to refresh repository packages, then install CastDrive and KnockDock with fast background updates.</p>
                     </div>
                   </li>
                 </ol>
@@ -242,9 +242,9 @@ export const FDroidSection: React.FC<FDroidSectionProps> = ({ onCopyText }) => {
               </div>
             )}
 
-            {/* Direct Download Cards for Android & Windows PC */}
+            {/* Direct Download Cards for CastDrive Android, CastDrive Windows PC & KnockDock Android */}
             <div id="downloads" className="platform-download-grid">
-              {/* Android Download Card */}
+              {/* CastDrive Android Download Card */}
               <div className="platform-card">
                 <div className="platform-card-header">
                   <div className="platform-icon" aria-hidden="true">
@@ -276,7 +276,7 @@ export const FDroidSection: React.FC<FDroidSectionProps> = ({ onCopyText }) => {
                 </div>
               </div>
 
-              {/* Windows PC Download Card */}
+              {/* CastDrive Windows PC Download Card */}
               <div className="platform-card">
                 <div className="platform-card-header">
                   <div className="platform-icon" aria-hidden="true">
@@ -305,6 +305,44 @@ export const FDroidSection: React.FC<FDroidSectionProps> = ({ onCopyText }) => {
                   </a>
                   <a href="https://github.com/RSR-Projects/CastDrive/releases/tag/v2.0.0" target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-sm">
                     <span>Release Notes</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* KnockDock Android Download Card */}
+              <div className="platform-card">
+                <div className="platform-card-header">
+                  <div className="platform-icon" aria-hidden="true" style={{ padding: 0, overflow: 'hidden', background: 'rgba(16, 185, 129, 0.12)', borderColor: 'rgba(16, 185, 129, 0.3)' }}>
+                    <img
+                      src="./assets/knockdock-icon.png"
+                      alt="KnockDock App Icon"
+                      width="36"
+                      height="36"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }}
+                    />
+                  </div>
+                  <div className="platform-meta">
+                    <h5>KnockDock for Android</h5>
+                    <p>v1.0 &bull; versionCode 1 &bull; Apache-2.0</p>
+                  </div>
+                </div>
+                <div className="platform-details">
+                  Signed Android APK (<code>com.rsrprojects.knockdock</code>, Android 7.0+) for acoustic &amp; vibration desk knock macros. Also available directly via the RSR-Projects F-Droid repository.
+                </div>
+                <div className="platform-actions">
+                  <a href="./fdroid/repo/KnockDock.apk" className="btn btn-secondary btn-sm" download>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <span>Download APK</span>
+                  </a>
+                  <a href="https://github.com/RSR-Projects/KnockDock/releases" target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-sm">
+                    <span>Release Notes</span>
+                  </a>
+                  <a href="https://github.com/RSR-Projects/KnockDock" target="_blank" rel="noopener noreferrer" className="btn btn-ghost btn-sm">
+                    <span>Source Code</span>
                   </a>
                 </div>
               </div>

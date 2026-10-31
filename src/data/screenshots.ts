@@ -77,3 +77,48 @@ export const pcScreenshots: Screenshot[] = [
     desc: 'Built-in local web server address (http://<phone-ip>:8080) allowing any computer, tablet, or smart display on the network to view the stream directly via web browser.'
   }
 ];
+
+export const knockDockScreenshots: Screenshot[] = [
+  {
+    num: 1,
+    src: './assets/knockdock-screenshots/1.png',
+    title: 'Home Dock & Acoustic Monitoring Hub',
+    desc: 'Main KnockDock dashboard featuring continuous acoustic desk-surface monitoring controls, interactive tap test orb, direct knock simulator buttons (1x Tap, 2x Double, 3x Triple), and active automation profile switching (Desk Commander).'
+  },
+  {
+    num: 2,
+    src: './assets/knockdock-screenshots/2.png',
+    title: 'Sensor Lab & 60 FPS Live Oscilloscope',
+    desc: 'Real-time filtered vibration impulse oscilloscope plotting live impulse peaks against the adaptive threshold (1.82 m/s²) and dynamic noise floor (0.08 m/s²), paired with 6-axis Accelerometer (X/Y/Z) and Gyroscope (rad/s) telemetry cards.'
+  },
+  {
+    num: 3,
+    src: './assets/knockdock-screenshots/3.png',
+    title: 'Multi-Trial Gesture Trainer & Calibration',
+    desc: 'Interactive Liquid Glass knock pad and acoustic signal training studio for recording custom desk knock patterns (such as Desk Triple Tap), sampling ambient noise, and calibrating gesture library tolerances.'
+  },
+  {
+    num: 4,
+    src: './assets/knockdock-screenshots/4.png',
+    title: 'Action Studio & Configured Workflows',
+    desc: 'Overview of configured actions and multi-step sequences (25m Pomodoro Focus, 5m Tea / Break Timer, Desk Focus Macro, Launch CastDrive) alongside instant Quick Voice Memo capture and category filters.'
+  },
+  {
+    num: 5,
+    src: './assets/knockdock-screenshots/5.png',
+    title: 'Custom Action Builder & Concurrency Policies',
+    desc: 'Action creation studio supporting 30 built-in action types across 10 categories (shown configuring Local App: Launch Installed App -> CastDrive), state-aware reversible toggle, macro concurrency policies, and gesture binding.'
+  },
+  {
+    num: 6,
+    src: './assets/knockdock-screenshots/6.png',
+    title: 'Automation Profiles & Gesture Mappings',
+    desc: 'Context profile manager (Desk Commander active default profile and custom profiles) with per-profile gesture-to-action bindings (Triple Knock → Open Web URL, Single Knock → Post Notification Macro, Double Knock → Quick Reminder & Timer).'
+  },
+  {
+    num: 7,
+    src: './assets/knockdock-screenshots/7.png',
+    title: '12-Folder Collapsible Settings & Liquid Glass Optics',
+    desc: 'Clean dark-mode settings organized into collapsible category folders: Background Launch & Power, Card Glass & Surface Optics (10.8 dp), Navigation Dock & Liquid Glass (1.0 dp), Acoustic Knock Detection (65% Gate), Tactile & Audio Feedback, PC Control Module, and System Diagnostics.'
+  }
+];

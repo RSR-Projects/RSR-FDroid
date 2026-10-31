@@ -1,7 +1,13 @@
 import React from 'react';
 import { changelogData } from '../data/castdrive';
+import { knockDockChangelogData } from '../data/knockdock';
 
 export const ChangelogSection: React.FC = () => {
+  const combinedReleases = [
+    ...knockDockChangelogData.map(r => ({ ...r, appName: 'KnockDock' })),
+    ...changelogData.map(r => ({ ...r, appName: 'CastDrive' }))
+  ];
+
   return (
     <section id="changelog" className="changelog-section">
       <div className="container">
@@ -9,20 +15,30 @@ export const ChangelogSection: React.FC = () => {
           <span className="section-pretitle">Version History</span>
           <h2 className="section-title">Release Notes &amp; Changelog</h2>
           <p className="section-desc">
-            Documented release history and verified updates for CastDrive and repository components.
+            Documented release history and verified updates for CastDrive, KnockDock, and repository components.
           </p>
         </div>
 
         <div className="changelog-cards">
-          {changelogData.map((release, idx) => (
+          {combinedReleases.map((release, idx) => (
             <div
-              key={idx}
+              key={`${release.appName}-${release.version}-${idx}`}
               className={`changelog-card ${release.isLatest ? 'latest' : ''}`}
               data-reveal
               data-reveal-delay={(idx + 1).toString()}
             >
               <div className="changelog-header">
                 <div className="changelog-version-wrap">
+                  <span
+                    className="badge badge-stable"
+                    style={
+                      release.appName === 'KnockDock'
+                        ? { background: 'rgba(16, 185, 129, 0.16)', borderColor: 'rgba(16, 185, 129, 0.45)', color: '#34d399' }
+                        : { background: 'rgba(6, 182, 212, 0.16)', borderColor: 'rgba(6, 182, 212, 0.45)', color: '#22d3ee' }
+                    }
+                  >
+                    {release.appName}
+                  </span>
                   <span className="changelog-version">{release.version}</span>
                   <span className={`badge ${release.isLatest ? 'badge-stable' : 'badge-license'}`}>
                     {release.versionCodeBadge}

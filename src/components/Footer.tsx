@@ -36,13 +36,15 @@ export const Footer: React.FC<FooterProps> = ({ currentPage, onNavigate }) => {
           </div>
 
           <div className="footer-col">
-            <h5>CastDrive &amp; Repo</h5>
+            <h5>CastDrive &amp; KnockDock</h5>
             <ul className="footer-links">
-              <li><a href="https://github.com/RSR-Projects/CastDrive" target="_blank" rel="noopener noreferrer">Source Code</a></li>
-              <li><a href="https://github.com/RSR-Projects/CastDrive/releases/tag/v2.0.0" target="_blank" rel="noopener noreferrer">Releases (v2.0.0)</a></li>
-              <li><a href="https://github.com/RSR-Projects/CastDrive/issues" target="_blank" rel="noopener noreferrer">Issue Tracker</a></li>
+              <li><a href="https://github.com/RSR-Projects/CastDrive" target="_blank" rel="noopener noreferrer">CastDrive Source Code</a></li>
+              <li><a href="https://github.com/RSR-Projects/CastDrive/releases/tag/v2.0.0" target="_blank" rel="noopener noreferrer">CastDrive Releases (v2.0.0)</a></li>
               <li><a href="./fdroid/repo/CastDrive.apk" download>CastDrive.apk (Android)</a></li>
               <li><a href="https://github.com/RSR-Projects/CastDrive/releases/download/v2.0.0/CastDrivePC.exe">CastDrivePC.exe (Windows)</a></li>
+              <li><a href="https://github.com/RSR-Projects/KnockDock" target="_blank" rel="noopener noreferrer">KnockDock Source Code</a></li>
+              <li><a href="https://github.com/RSR-Projects/KnockDock/releases" target="_blank" rel="noopener noreferrer">KnockDock Releases (v1.0)</a></li>
+              <li><a href="./fdroid/repo/KnockDock.apk" download>KnockDock.apk (Android)</a></li>
             </ul>
           </div>
 
@@ -61,7 +63,7 @@ export const Footer: React.FC<FooterProps> = ({ currentPage, onNavigate }) => {
             <ul className="footer-links">
               <li><a href="#fdroid-repo" onClick={() => onNavigate(currentPage === 'creator' ? 'home' : currentPage, '#fdroid-repo')}>Add Repository</a></li>
               <li><a href="https://github.com/RSR-Projects/RSR-FDroid" target="_blank" rel="noopener noreferrer">RSR-FDroid Source</a></li>
-              <li><a href="https://github.com/RSR-Projects/RSR-FDroid/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a></li>
+              <li><a href="https://github.com/RSR-Projects/RSR-FDroid/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT &amp; Apache-2.0 Licenses</a></li>
             </ul>
           </div>
         </div>

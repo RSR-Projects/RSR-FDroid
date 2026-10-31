@@ -109,6 +109,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
               <a href="#hero" className="nav-link" onClick={() => handleNavClick('home', '#hero')}>Overview</a>
               <a href="#ecosystem-deck" className="nav-link" onClick={() => handleNavClick('home', '#ecosystem-deck')}>Card Deck</a>
               <a href="#castdrive" className="nav-link" onClick={() => handleNavClick('home', '#castdrive')}>CastDrive</a>
+              <a href="#knockdock" className="nav-link" onClick={() => handleNavClick('home', '#knockdock')}>KnockDock</a>
               <a href="#screenshots" className="nav-link" onClick={() => handleNavClick('home', '#screenshots')}>Screenshots</a>
               <a href="#fdroid-repo" className="nav-link" onClick={() => handleNavClick('home', '#fdroid-repo')}>F-Droid Repository</a>
               <a href="#downloads" className="nav-link" onClick={() => handleNavClick('home', '#downloads')}>Downloads</a>

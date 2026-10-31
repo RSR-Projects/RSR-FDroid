@@ -46,6 +46,11 @@ export const EcosystemSection: React.FC<EcosystemSectionProps> = ({ onNavigateTo
                       <line x1="12" y1="17" x2="12" y2="21"></line>
                     </svg>
                   )}
+                  {proj.title === 'KnockDock' && (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                  )}
                   {proj.title === 'RSR-FDroid' && (
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>

@@ -1,15 +1,20 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { androidScreenshots, pcScreenshots } from '../data/screenshots';
+import { androidScreenshots, pcScreenshots, knockDockScreenshots } from '../data/screenshots';
 
 export const ScreenshotGallery: React.FC = () => {
-  const [category, setCategory] = useState<'android' | 'pc'>('android');
+  const [category, setCategory] = useState<'android' | 'pc' | 'knockdock'>('android');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const currentList = category === 'android' ? androidScreenshots : pcScreenshots;
+  const currentList =
+    category === 'android'
+      ? androidScreenshots
+      : category === 'pc'
+      ? pcScreenshots
+      : knockDockScreenshots;
   const currentItem = currentList[currentIndex] || currentList[0];
 
-  const handleCategorySwitch = (cat: 'android' | 'pc') => {
+  const handleCategorySwitch = (cat: 'android' | 'pc' | 'knockdock') => {
     if (cat === category) return;
     setCategory(cat);
     setCurrentIndex(0);
@@ -39,7 +44,12 @@ export const ScreenshotGallery: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isModalOpen, handleNext, handlePrev]);
 
-  const platformLabel = category === 'pc' ? 'Windows PC App' : 'Android App';
+  const platformLabel =
+    category === 'pc'
+      ? 'CastDrive Windows PC'
+      : category === 'knockdock'
+      ? 'KnockDock Android App'
+      : 'CastDrive Android App';
 
   return (
     <section id="screenshots" className="screenshots-section">
@@ -48,11 +58,11 @@ export const ScreenshotGallery: React.FC = () => {
           <span className="section-pretitle">Interface &amp; Capabilities</span>
           <h2 className="section-title">Verified App Screenshots</h2>
           <p className="section-desc">
-            Direct captures from active CastDrive builds running on Android hardware and Windows PCs.
+            Direct captures from active CastDrive and KnockDock builds running on Android hardware and Windows PCs.
           </p>
         </div>
 
-        {/* Gallery Category Switcher (Android & PC) */}
+        {/* Gallery Category Switcher (CastDrive Android, CastDrive PC & KnockDock Android) */}
         <div className="gallery-tabs-wrap" role="tablist" aria-label="Screenshot Categories" data-reveal data-reveal-delay="1">
           <button
             className={`gallery-tab-btn ${category === 'android' ? 'active' : ''}`}
@@ -64,7 +74,7 @@ export const ScreenshotGallery: React.FC = () => {
               <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
               <line x1="12" y1="18" x2="12.01" y2="18"></line>
             </svg>
-            <span>Android App</span>
+            <span>CastDrive Android</span>
             <span className="gallery-tab-badge">8 Captures</span>
           </button>
           <button
@@ -78,8 +88,20 @@ export const ScreenshotGallery: React.FC = () => {
               <line x1="8" y1="21" x2="16" y2="21"></line>
               <line x1="12" y1="17" x2="12" y2="21"></line>
             </svg>
-            <span>Windows PC App</span>
+            <span>CastDrive Windows PC</span>
             <span className="gallery-tab-badge">4 Captures</span>
+          </button>
+          <button
+            className={`gallery-tab-btn ${category === 'knockdock' ? 'active' : ''}`}
+            role="tab"
+            aria-selected={category === 'knockdock'}
+            onClick={() => handleCategorySwitch('knockdock')}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+            <span>KnockDock Android</span>
+            <span className="gallery-tab-badge">7 Captures</span>
           </button>
         </div>
 
@@ -94,7 +116,7 @@ export const ScreenshotGallery: React.FC = () => {
               <img
                 id="gallery-preview-img"
                 src={currentItem.src}
-                alt={`CastDrive Screenshot: ${currentItem.title}`}
+                alt={`${platformLabel} Screenshot: ${currentItem.title}`}
                 width={category === 'pc' ? 680 : 320}
                 height={category === 'pc' ? 420 : 693}
               />
